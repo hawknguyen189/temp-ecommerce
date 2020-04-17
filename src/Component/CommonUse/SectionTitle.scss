@@ -1,0 +1,31 @@
+@import "../helpers/FontMaster";
+.section-title {
+  font-family: $font-alata;
+  letter-spacing: 0.2em;
+  position: relative;
+  .sub-title {
+    font-family: $font-display;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    line-height: 1.2;
+    font-style: italic;
+    color: $main-green-text;
+  }
+}
+
+.section-title::before {
+  content: "";
+  display: block;
+  width: 157px;
+  height: 125px;
+  background: url(../../media/title-backdrop.png) no-repeat center center;
+  position: absolute;
+  /* margin-left: auto !important;
+  margin-right: auto !important; */
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0.2;
+}

@@ -1,0 +1,102 @@
+@import "../helpers/FontMaster";
+.deal-of-the-day {
+  .product-price {
+    width: 6em;
+    height: 6em;
+    background-color: #8eb359;
+    border-radius: 100px;
+    z-index: 1000;
+    font-style: italic;
+    font-size: 1.5em;
+    color: white !important;
+    letter-spacing: 0.2em;
+  }
+  .deal-product-name {
+    color: #8eb359;
+    font-style: italic;
+    letter-spacing: 0.2em;
+  }
+  .deal-product-header {
+    letter-spacing: 0.1em;
+  }
+  .main-font {
+    font-family: "Playfair Display", serif;
+  }
+  .add-to-cart {
+    font-weight: 500;
+  }
+}
+.deal-background {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  background-image: url(../../media/deal-background.png);
+  /* border-color: #f8f9fa; */
+  background-size: cover;
+  /* background-position: left top; */
+  background-repeat: no-repeat;
+  /* height: 100vh; */
+  /* width: auto; */
+  /* align-items: center; */
+  margin-bottom: 0;
+}
+.product-shelf {
+  .product-lot:hover {
+    border-color: $main-green-text;
+    .product-name {
+      color: $main-green-text;
+    }
+    img {
+      transform: scale(0.9);
+      opacity: 0.25;
+    }
+    .product-action {
+      visibility: visible !important;
+    }
+  }
+  .product-lot {
+    .product-thumb {
+      img {
+        transition: all 0.5s;
+      }
+    }
+    .product-desc {
+      position: relative;
+      a {
+        font-size: 1.2em;
+        font-family: $font-display;
+        letter-spacing: 0.05em;
+        color: $brown-text;
+        font-weight: 700;
+        transition: all 0.2s;
+      }
+      .product-price {
+        font-family: $font-display;
+        font-style: italic;
+        font-size: 0.9em;
+        font-weight: 700;
+        color: $gray-text;
+      }
+      .product-action {
+        visibility: hidden;
+        position: absolute;
+        top: -60%;
+        // left: 20%;
+        // height:100%;
+        width: 100%;
+        // top: calc(height*0.5);
+        a {
+          width: 48px;
+          height: 48px;
+          background-color: $gray-text;
+          color:snow;
+          opacity: 0.9;
+          font-size: 1em;
+        }
+        .add-to-cart>a{
+          background-color: $main-green-text;
+        }
+      }
+    }
+  }
+}

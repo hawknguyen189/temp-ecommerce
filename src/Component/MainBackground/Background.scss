@@ -1,0 +1,55 @@
+.main-background {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  background-image: url(../../media/main-background.png);
+  /* border-color: #f8f9fa; */
+  background-size: cover;
+  /* background-position: left top; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  /* width: auto; */
+  /* align-items: center; */
+  margin-bottom: 0;
+}
+.header-title {
+  color: rgb(142, 179, 90);
+}
+.carousel-caption {
+  color: orangered;
+}
+
+.slider-content {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='50px' width='120px'><text x='0' y='15' fill='red' font-size='80'>I love SVG!</text></svg>");
+}
+.pomegranate {
+  color: #c51618;
+  background-color: #c51618;
+}
+.header-content {
+  font-family: "Playfair Display", serif;
+  line-height: 2em;
+}
+.text-content {
+  font-family: "Playfair Display", serif;
+  line-height: 2em;
+}
+.jumbotron {
+  margin-bottom: 0;
+}
+.light-grey {
+  background-color: #f8f7f7;
+}
+.navbar-brand {
+  font-family: "Playfair Display";
+}
+//turn off paralell scrolling on small devices smaller than 1024
+//fix background-attachment: fixed issue on IOS devices
+@media screen and (max-device-width: 1024px) {
+  #mainBackground {
+    .main-background {
+      background-attachment: scroll;
+    }
+  }
+}

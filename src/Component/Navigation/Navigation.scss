@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600");
+@import "../helpers/FontMaster";
+
+li > a {
+  font-family: $font-alata;
+  color: $gray-text;
+}
+.nav-pills .show > .nav-link {
+  color: $main-green-text !important;
+  background-color: $light-gray-background;
+}
+.nav-pills .nav-link.active {
+  color: $main-green-text !important;
+  background-color: $light-gray-background;
+}
+#navBar {
+  .nav-item:not(:last-child) {
+    margin-right: 35px;
+    background-color: $light-gray-background;
+  }
+}
+.dropdown-menu {
+  margin-top: 0;
+}
+.dropdown-toggle::after {
+  transition: transform 0.15s linear;
+}
+
+.show.dropdown .dropdown-toggle::after {
+  transform: translateY(3px);
+}
+
+.nav-icon {
+  font-size: 1.1em;
+  color: $gray-text;
+}
+
+//working on mobile navbar
+#headerNavbarMobile {
+  // set navigation bar header fixed to top, can change to relative for a sticky top option
+  //   z-index: 1020 !important;
+  * {
+    outline: none;
+  }
+  .navigation-header {
+    .nav-mobile-header {
+      position: relative;
+      left: 40px;
+    }
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    color: $main-green-text;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    top: 0;
+    left: 0;
+    transition-property: background-color;
+    transition-duration: 3s;
+  }
+  .button {
+    position: relative;
+    // top:-100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-appearance: none;
+    border: 0;
+    background: transparent;
+    border-radius: 0;
+    height: 70px;
+    width: 30px;
+    cursor: pointer;
+    pointer-events: auto;
+    margin-left: 25px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  .nav-mobile-icon {
+    color: $brown-text;
+  }
+  #nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    pointer-events: none;
+  }
+  #nav-container .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    background: #000;
+  }
+  #nav-container:focus-within .bg {
+    visibility: visible;
+    opacity: 0.6;
+  }
+
+  .icon-bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #aaa;
+    transition: visibility 0s, transform 0.5s;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 5px;
+  }
+
+  #nav-container:focus-within .button {
+    pointer-events: none;
+  }
+  #nav-container:focus-within .icon-bar:nth-of-type(1) {
+    transform: translate3d(0, 8px, 0) rotate(45deg);
+  }
+  #nav-container:focus-within .icon-bar:nth-of-type(2) {
+    opacity: 0;
+  }
+  #nav-container:focus-within .icon-bar:nth-of-type(3) {
+    transform: translate3d(0, -8px, 0) rotate(-45deg);
+  }
+
+  #nav-content {
+    margin-top: 70px;
+    padding: 20px;
+    width: 90%;
+    max-width: 300px;
+    position: absolute;
+    top: -0;
+    left: 0;
+    height: calc(100% - 70px);
+    background: #ececec;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    will-change: transform;
+    contain: paint;
+    // .dropdown-menu{
+    //   position: relative !important;
+    //   top: -35px !important;
+    // }
+  }
+
+  #nav-content ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #nav-content li a {
+    padding: 10px 5px;
+    display: block;
+    text-transform: uppercase;
+    transition: color 0.1s;
+  }
+
+  #nav-content li a:hover {
+    color: #bf7497;
+  }
+
+  #nav-content li:not(.small) + .small {
+    margin-top: auto;
+  }
+
+  #nav-container:focus-within #nav-content {
+    transform: none;
+  }
+}
+.navbar-mobile--top {
+  visibility: hidden;
+  .navigation-header {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+.navbar-mobile--not-top {
+  visibility: visible;
+  .navigation-header {
+    background-color: $light-gray-background;
+  }
+}
+// using debounce for grouping function
+// html:not([data-scroll="0"]) {
+//   #headerNavbarMobile {
+//     visibility: visible;
+//     transition: all 2s;
+//   }
+// }

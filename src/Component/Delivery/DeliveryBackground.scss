@@ -1,0 +1,74 @@
+@import "../helpers/_FontMaster";
+.process-visual {
+  margin: 0 auto;
+  width: 120px;
+  height: 120px !important;
+  // background-color: #8eb359;
+}
+.process-visual:hover {
+  .process-icon {
+    animation: animation-spinner 4s linear infinite;
+  }
+  //   .process-logo{
+  //       color: snow;
+  //       background-color: #8eb359;
+  //       border-radius: 100%;
+  //   }
+}
+.process-logo {
+  font-weight: 900;
+  font-size: 4em;
+  color: $main-green-text;
+  width: auto;
+}
+
+.process-icon {
+  // background-image: url(../../media/icons/process-spinner.png);
+  // background-repeat: no-repeat;
+  // background-position: center center;
+  // background-size: cover;
+  height: 13em;
+  width: 13em;
+  // display: block;
+  // position: absolute;
+  left: -42px;
+  top: -70px;
+  opacity: 0.5;
+  z-index: -1000;
+  /* Other styles here */
+}
+.process-title-font {
+  font-family: $font-alata;
+  letter-spacing: 0.1em;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: $brown-text;
+  font-weight: 700;
+}
+.process-description-font {
+  font-family: $font-display;
+  // font-style: italic;
+  letter-spacing: 0.1em;
+  font-size: 0.9em;
+  color: $gray-text;
+}
+.animation-spinner {
+  animation: animation-spinner 4s linear infinite;
+}
+@keyframes animation-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media (min-width: 769px) {
+  .process-img {
+    margin-top: -170px;
+  }
+  .step-1,
+  .step-4 {
+    margin-top: 12em;
+  }
+}

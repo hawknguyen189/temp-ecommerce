@@ -1,0 +1,33 @@
+@import "../helpers/FontMaster";
+.blog-date {
+  font-family: $font-display;
+  font-style: italic;
+  //   letter-spacing: 0.1em;
+  font-size: 0.9em;
+  color: $light-gray-text;
+}
+.blog-title {
+  font-family: $font-display;
+  // font-size: 1.5em;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.5;
+  color:black;
+}
+.blog-content {
+  font-family: $font-alata;
+  letter-spacing: 0.1em;
+  font-size: 0.9em;
+  color: $gray-text;
+  font-weight: 400;
+}
+.blog-more {
+  font-family: $font-alata;
+//   letter-spacing: 0.1em;
+  font-size: 0.9em;
+  color: $gray-text;
+  font-weight: 400;
+}
+.side-blog-img{
+  height: 100%;
+}

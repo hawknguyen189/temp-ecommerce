@@ -1,0 +1,19 @@
+@import "../helpers/_FontMaster";
+.subscription-bg {
+  background-image: url(../../media/subscription-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+.subscribe-header {
+  font-family: $font-display;
+  font-size: 2.2em;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.8;
+  color: $brown-text;
+  letter-spacing: 0em;
+}
+a:hover {
+  text-decoration: none;
+}
