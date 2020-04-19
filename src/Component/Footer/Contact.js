@@ -15,11 +15,11 @@ const Contact = () => {
         </p>
         <p>
           <i className="far fa-envelope contact-icon mr-2 text-center"></i>
-          contact@pombeard.com
+          contact@treobamoo.com
         </p>
         <p>
           <i className="fas fa-globe-americas contact-icon mr-2 text-center"></i>
-          <a href="www.pombeard.com">www.pombeard.com</a>
+          <a href="www.treobamboo.com">www.treobamboo.com</a>
         </p>
       </div>
       <div className="contact-network row">

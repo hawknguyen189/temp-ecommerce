@@ -10,8 +10,8 @@ const BusinessDescription = () => {
         <div className="who col-sm-3 text-center pb-3">
           <img src={IntroductionWho} className="img-fluid" alt="" />
           <h6 className="text-content">
-            Understanding the sometimes harmful methods of modern agriculture,
-            we started a niche for quality organic produce grown.
+            Understanding the sometimes harmful methods of modern construction
+            materials, we started a niche for quality home sustainable products.
           </h6>
           <a className="btn btn-outline-info" href="">
             Learn more
@@ -20,8 +20,8 @@ const BusinessDescription = () => {
         <div className="how col-sm-3 text-center pb-3">
           <img src={IntroductionHow} className="img-fluid" alt="" />
           <h6 className="text-content">
-            We believe it’s the best way to inspire our community to relish in
-            the taste of real, seasonal produce and keep connected to the land.
+            We take special care to select and grow specific bamboo crop that
+            it not only provides a sustainable alternative to furnitures and accessories but also to construction materials like timber or steel.
           </h6>
           <a className="btn btn-outline-info" href="">
             Learn more
@@ -30,9 +30,10 @@ const BusinessDescription = () => {
         <div className="what col-sm-3 text-center pb-3">
           <img src={IntroductionWhat} className="img-fluid" alt="" />
           <h6 className="text-content">
-            We take special care to select and grow specific crop varieties
-            where exceptional flavor is the focus, with a determination to bring
-            the best-tasting produce.
+            Bamboo is a fast-growing, renewable, and easy-to-grow material that
+            requires zero chemicals and pesticides. It can be grown all
+            throughout the world and has countless uses both in and outside the
+            home.
           </h6>
           <a className="btn btn-outline-info" href="">
             Learn more

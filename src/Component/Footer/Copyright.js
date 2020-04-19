@@ -4,7 +4,7 @@ const Copyright = () => {
   return (
     <div className="row ">
       <div className="col-sm copyright-content">
-        Copyright © 2016 Organie Store - All Rights Reserved.
+        Copyright © 2020 TreO Bamboo - All Rights Reserved.
       </div>
       <div className="col-sm text-right row policy-content">
         <div className="col-sm">

@@ -11,9 +11,16 @@ const BusinessVision = () => {
       />
       <div className="row justify-content-center">
         <h4 className="header-content col-sm-5 pb-5 pt-5">
-          We are <strong>Online Market</strong> of fresh fruits & vegetables.
-          You can also find organic & healthy juice, processed food as well as
-          gentle skin care at our store.
+          <p>
+            We are <strong>Sustainable Home Supplier</strong> of bamboo & other
+            eco-friendly products.
+          </p>
+          <p>
+            <strong>TreO Bamboo</strong> aims to build a sustainable future with
+            bamboo materials, specifically through the promotion of these green
+            building materials as comfortable, durable, eco-friendly
+            alternatives to conventional products.
+          </p>
         </h4>
       </div>
     </section>

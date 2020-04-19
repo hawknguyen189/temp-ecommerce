@@ -43,8 +43,8 @@ const NavbarMobile = () => {
               src={brandLogo}
               className="img-fluid nav-mobile-header"
               alt="brand-logo"
-              width="155"
-              height="155"
+              width="90"
+              height="90"
             />
           </div>
           <div className="nav-mobile-icon col-6 d-flex align-items-center justify-content-end">
