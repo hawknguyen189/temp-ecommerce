@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import brandLogo from "../../media/pom-beard-logo.png";
+import brandLogo from "../../media/treo-bamboo-logo-green.png";
 import NavDropdown from "./NavDropdown";
 import $ from "jquery";
 
@@ -44,10 +44,9 @@ const Navbar = () => {
                 src={brandLogo}
                 className="img-fluid"
                 alt="brand-logo"
-                width="30"
-                height="30"
+                width="155"
+                height="155"
               />
-              <span>PomBeard</span>
             </a>
           </div>
           <nav id="navBar" className="navbar navbar-expand-lg col-6">

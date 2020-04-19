@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import NavMobileDropdown from "./NavMobileDropdown";
+import brandLogo from "../../media/treo-bamboo-logo-green.png";
 import { _debounce } from "../CommonUse/Utils";
 import "./Navigation.scss";
 
@@ -24,7 +25,7 @@ const NavbarMobile = () => {
 
     // Listen for new scroll events, here we debounce our `storeScroll` function
     document.addEventListener("scroll", _debounce(storeScroll), {
-      passive: true
+      passive: true,
     });
 
     // Update scroll position for first time
@@ -38,7 +39,13 @@ const NavbarMobile = () => {
       <div className="navbar-mobile container">
         <div tabIndex="0" className="navigation-header row mx-0">
           <div className="col-6 mobile-brand d-flex justify-content-end align-items-center">
-            <span className="nav-mobile-header">Pom Beard</span>
+            <img
+              src={brandLogo}
+              className="img-fluid nav-mobile-header"
+              alt="brand-logo"
+              width="155"
+              height="155"
+            />
           </div>
           <div className="nav-mobile-icon col-6 d-flex align-items-center justify-content-end">
             <i className="fas fa-user-circle nav-icon pr-4"></i>
