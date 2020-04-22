@@ -11,7 +11,7 @@ const BusinessDescription = () => {
           <img src={IntroductionWho} className="img-fluid" alt="" />
           <h6 className="text-content">
             Understanding the sometimes harmful methods of modern construction
-            materials, we started a niche for quality home sustainable products.
+            materials, we started a niche for quality home sustainable alternatives.
           </h6>
           <a className="btn btn-outline-info" href="">
             Learn more
