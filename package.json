@@ -1,17 +1,19 @@
 {
   "homepage": "https://hawknguyen189.github.io/treo-bamboo",
-  "name": "treo-bamboo",
+  "name": "loop-ppe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.1",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0",
+    "react-scripts": "^3.4.1",
+    "react-helmet-async": "^1.0.5",
+    "react-router-dom": "^5.1.2",
     "slideout": "^1.0.1"
   },
   "scripts": {

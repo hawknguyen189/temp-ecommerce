@@ -1,6 +1,6 @@
 import React from "react";
 import products from "./ProductsData";
-import { StoreContext } from "../CommonUse/StoreContext";
+import { StoreContext } from "../Context/StoreContext";
 
 const FrontPageProducts = () => {
   // eslint-disable-next-line no-unused-vars
@@ -10,7 +10,7 @@ const FrontPageProducts = () => {
   if (tag.includes("all")) {
     filteredProducts = [...products]; //copy products array
   } else {
-    filteredProducts = products.filter(product => {
+    filteredProducts = products.filter((product) => {
       let showProduct = false;
       for (let i = 0; i < tag.length; i++) {
         if (product.tag.includes(tag[i])) {

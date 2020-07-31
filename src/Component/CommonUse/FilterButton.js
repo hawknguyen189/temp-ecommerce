@@ -1,6 +1,6 @@
 import React from "react";
 import "./FilterButton.scss";
-import { StoreContext } from "./StoreContext";
+import { StoreContext } from "../Context/StoreContext";
 
 const FilterButton = props => {
   // eslint-disable-next-line no-unused-vars

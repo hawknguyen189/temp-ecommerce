@@ -1,6 +1,6 @@
 const products = [
   {
-    productName: "3-Ply Mask",
+    productName: "Lemon Hand Sanitizer",
     productPrice: 30,
     status: "",
     tag: ["skinCare", "fruit"]
