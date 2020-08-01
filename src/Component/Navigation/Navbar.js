@@ -1,9 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 import brandLogo from "../../media/treo-bamboo-logo-green.png";
 import NavDropdown from "./NavDropdown";
 import $ from "jquery";
 
 const Navbar = () => {
+  //use context
+  const { itemCount } = useContext(CartContext);
+
   // this is for hover menu
   useEffect(() => {
     const $dropdown = $(".dropdown");
@@ -11,16 +15,16 @@ const Navbar = () => {
     const $dropdownMenu = $(".dropdown-menu");
     const showClass = "show";
 
-    $(window).on("load resize", function() {
+    $(window).on("load resize", function () {
       if (this.matchMedia("(min-width: 768px)").matches) {
         $dropdown.hover(
-          function() {
+          function () {
             const $this = $(this);
             $this.addClass(showClass);
             $this.find($dropdownToggle).attr("aria-expanded", "true");
             $this.find($dropdownMenu).addClass(showClass);
           },
-          function() {
+          function () {
             const $this = $(this);
             $this.removeClass(showClass);
             $this.find($dropdownToggle).attr("aria-expanded", "false");
@@ -39,7 +43,7 @@ const Navbar = () => {
       <div className="navbar-desktop navbar-light bg-light">
         <div className="row">
           <div className="col-3 d-flex align-items-center justify-content-center">
-            <a className="" href="#header">
+            <a className="" href="/">
               <img
                 src={brandLogo}
                 className="img-fluid"
@@ -132,7 +136,11 @@ const Navbar = () => {
           <div className="col-3 d-flex align-items-center justify-content-center">
             <i className="fas fa-user-circle nav-icon"></i>
             <i className="far fa-heart nav-icon pl-4"></i>
-            <i className="fas fa-shopping-cart nav-icon pl-4"></i>
+            <a href="/cart">
+              <i className="fas fa-shopping-cart nav-icon pl-4">
+                ({itemCount})
+              </i>
+            </a>
           </div>
         </div>
       </div>

@@ -1,15 +1,39 @@
-import React from "react";
-import deals from "./DealsData";
+import React, { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
+// import deals from "./DealsData";
+import products from "./ProductsData";
 import "./ProductStore.scss";
 
 const Deals = () => {
+  const { addProduct, cartItems, increase } = useContext(CartContext);
+  let specialDeal;
+  for (const element in products) {
+    const found = products[element].tag.findIndex((e) => e === "special-deal");
+    if (found !== -1) {
+      specialDeal = element;
+      break;
+    }
+  }
+  let product;
+  if (!specialDeal) {
+    product = products[0];
+  } else {
+    product = products[specialDeal];
+  }
+  const isInCart = (product) => {
+    return !!cartItems.find((item) => item.id === product.id);
+  };
+  const productLink = product.productName.toLowerCase().replace(/ /g, "-");
   return (
-    <div id="dealSection" className="container-fluid deal-background deal-of-the-day align-items-center justify-content-center">
+    <div
+      id="dealSection"
+      className="container-fluid deal-background deal-of-the-day align-items-center justify-content-center"
+    >
       <div className="container">
         <div className="row">
           <div className="product-display col-md-6 d-flex">
             <img
-              src={require("../../media/" + deals[0].productImage)}
+              src={require("../../media/products/" + productLink + ".jpg")}
               className="img-fluid"
               alt="deal-of-the-day"
             />
@@ -20,7 +44,7 @@ const Deals = () => {
                 <span>
                   {" "}
                   <span>£</span>
-                  {deals[0].productPrice}
+                  {product.productPrice}
                 </span>
               </a>
             </div>
@@ -29,11 +53,25 @@ const Deals = () => {
             <h1 className="font-weight-bolder deal-product-header">
               DEAL OF THE DAY
             </h1>
-            <h5 className="pb-4 deal-product-name">{deals[0].productName}</h5>
-            <p className="pb-4">{deals[0].productDesc}</p>
-            <button className="btn btn-primary add-to-cart align-self-center mb-3">
-              ADD TO CART
-            </button>
+            <h5 className="pb-4 deal-product-name">{product.productName}</h5>
+            <p className="pb-4">{product.productDesc}</p>
+            {isInCart(product) && (
+              <button
+                onClick={() => increase(product)}
+                className="btn btn-primary add-to-cart align-self-center mb-3"
+              >
+                Add more
+              </button>
+            )}
+
+            {!isInCart(product) && (
+              <button
+                onClick={() => addProduct(product)}
+                className="btn btn-primary add-to-cart align-self-center mb-3"
+              >
+                Add to cart
+              </button>
+            )}
           </div>
         </div>
       </div>

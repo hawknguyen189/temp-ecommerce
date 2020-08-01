@@ -7,7 +7,7 @@ const storage = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart"))
   : [];
 const initialState = {
-  cartItems: storage,
+  cartItems: storage, //cartItems retrieves data from localStorage
   ...sumItems(storage),
   checkout: false,
 };

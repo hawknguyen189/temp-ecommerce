@@ -1,3 +1,4 @@
+import products from "../ProductStore/ProductsData";
 const Storage = (cartItems) => {
   localStorage.setItem(
     "cart",
@@ -11,8 +12,13 @@ export const sumItems = (cartItems) => {
     (total, product) => total + product.quantity,
     0
   );
+
   let total = cartItems
-    .reduce((total, product) => total + product.price * product.quantity, 0)
+    .reduce((total, product) => {
+      const productPrice = products.find((e) => e.id === product.id)
+        .productPrice;
+      return total + productPrice * product.quantity;
+    }, 0)
     .toFixed(2);
   return { itemCount, total };
 };

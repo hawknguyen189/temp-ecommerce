@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 import products from "./ProductsData";
 import { StoreContext } from "../Context/StoreContext";
 
 const FrontPageProducts = () => {
+  //use context
+  const { addProduct, cartItems, increase } = useContext(CartContext);
+  const isInCart = (product) => {
+    return !!cartItems.find((item) => item.id === product.id);
+  }; //check this item already in cart
+
   // eslint-disable-next-line no-unused-vars
   const [tag, setTag] = React.useContext(StoreContext);
   // create filtered products array
@@ -60,23 +67,36 @@ const FrontPageProducts = () => {
                     <div className="container row justify-content-center">
                       <div className="quick-view d-flex justify-content-center px-2">
                         <a
-                          href=""
+                          href="javascript:void(0)"
                           className="rounded-circle d-flex justify-content-center"
                         >
                           <i className="far fa-eye align-self-center"></i>
                         </a>
                       </div>
                       <div className="add-to-cart d-flex justify-content-center px-2">
-                        <a
-                          href=""
-                          className="rounded-circle d-flex justify-content-center"
-                        >
-                          <i className="fas fa-shopping-cart align-self-center"></i>
-                        </a>
+                        {isInCart(product) && (
+                          <a
+                            href="javascript:void(0)"
+                            className="rounded-circle d-flex justify-content-center"
+                            onClick={() => increase(product)}
+                          >
+                            <i className="fas fa-shopping-cart align-self-center"></i>
+                          </a>
+                        )}
+
+                        {!isInCart(product) && (
+                          <a
+                            href="javascript:void(0)"
+                            className="rounded-circle d-flex justify-content-center"
+                            onClick={() => addProduct(product)}
+                          >
+                            <i className="fas fa-shopping-cart align-self-center"></i>
+                          </a>
+                        )}
                       </div>
                       <div className="add-to-compare d-flex justify-content-center px-2">
                         <a
-                          href=""
+                          href="javascript:void(0)"
                           className="rounded-circle d-flex justify-content-center"
                         >
                           <i className="fas fa-balance-scale align-self-center"></i>

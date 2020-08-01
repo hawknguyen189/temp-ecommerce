@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 import NavMobileDropdown from "./NavMobileDropdown";
 import brandLogo from "../../media/treo-bamboo-logo-green.png";
 import { _debounce } from "../CommonUse/Utils";
 import "./Navigation.scss";
 
 const NavbarMobile = () => {
+  //use context
+  const { itemCount } = useContext(CartContext);
   useEffect(() => {
     //have another choice  of using windowScroll hooks instead of this
     // Reads out the scroll position and stores it in the data attribute
@@ -50,7 +53,11 @@ const NavbarMobile = () => {
           <div className="nav-mobile-icon col-6 d-flex align-items-center justify-content-end">
             <i className="fas fa-user-circle nav-icon pr-4"></i>
             <i className="far fa-heart nav-icon pr-4"></i>
-            <i className="fas fa-shopping-cart nav-icon pr-4"></i>
+            <a href="/cart">
+              <i className="fas fa-shopping-cart nav-icon pr-4">
+                ({itemCount})
+              </i>
+            </a>
           </div>
         </div>
         <div id="nav-container">
