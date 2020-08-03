@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react";
+import {Link} from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import NavMobileDropdown from "./NavMobileDropdown";
 import brandLogo from "../../media/treo-bamboo-logo-green.png";
@@ -53,11 +54,11 @@ const NavbarMobile = () => {
           <div className="nav-mobile-icon col-6 d-flex align-items-center justify-content-end">
             <i className="fas fa-user-circle nav-icon pr-4"></i>
             <i className="far fa-heart nav-icon pr-4"></i>
-            <a href="/cart">
+            <Link to="/cart">
               <i className="fas fa-shopping-cart nav-icon pr-4">
                 ({itemCount})
               </i>
-            </a>
+            </Link>
           </div>
         </div>
         <div id="nav-container">

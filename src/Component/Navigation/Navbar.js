@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react";
+import {Link} from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import brandLogo from "../../media/treo-bamboo-logo-green.png";
 import NavDropdown from "./NavDropdown";
@@ -136,11 +137,11 @@ const Navbar = () => {
           <div className="col-3 d-flex align-items-center justify-content-center">
             <i className="fas fa-user-circle nav-icon"></i>
             <i className="far fa-heart nav-icon pl-4"></i>
-            <a href="/cart">
+            <Link to="/cart">
               <i className="fas fa-shopping-cart nav-icon pl-4">
                 ({itemCount})
               </i>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

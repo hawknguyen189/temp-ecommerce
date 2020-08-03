@@ -67,7 +67,7 @@ const FrontPageProducts = () => {
                     <div className="container row justify-content-center">
                       <div className="quick-view d-flex justify-content-center px-2">
                         <a
-                          href="javascript:void(0)"
+                          href="/"
                           className="rounded-circle d-flex justify-content-center"
                         >
                           <i className="far fa-eye align-self-center"></i>
@@ -76,9 +76,12 @@ const FrontPageProducts = () => {
                       <div className="add-to-cart d-flex justify-content-center px-2">
                         {isInCart(product) && (
                           <a
-                            href="javascript:void(0)"
+                            href="/"
                             className="rounded-circle d-flex justify-content-center"
-                            onClick={() => increase(product)}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              return increase(product);
+                            }}
                           >
                             <i className="fas fa-shopping-cart align-self-center"></i>
                           </a>
@@ -86,9 +89,12 @@ const FrontPageProducts = () => {
 
                         {!isInCart(product) && (
                           <a
-                            href="javascript:void(0)"
+                            href="/"
                             className="rounded-circle d-flex justify-content-center"
-                            onClick={() => addProduct(product)}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              return addProduct(product);
+                            }}
                           >
                             <i className="fas fa-shopping-cart align-self-center"></i>
                           </a>
@@ -96,7 +102,7 @@ const FrontPageProducts = () => {
                       </div>
                       <div className="add-to-compare d-flex justify-content-center px-2">
                         <a
-                          href="javascript:void(0)"
+                          href="/"
                           className="rounded-circle d-flex justify-content-center"
                         >
                           <i className="fas fa-balance-scale align-self-center"></i>
