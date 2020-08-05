@@ -39,6 +39,27 @@ const CartProducts = () => {
           ))}
         </tbody>
       </table>
+      <div className="container input-group mb-3 cart-coupon">
+        <div className="row">
+          {/* <label for="coupon code">Coupon:</label> */}
+          <input
+            type="text"
+            className="form-control col-sm rounded-pill"
+            placeholder="Coupon code"
+            aria-label="Couponcode"
+            aria-describedby="basic-addon1"
+          />
+          <div className="input-group-prepend col-sm">
+            <button
+              className="btn btn-primary rounded"
+              type="button"
+              id="btnCoupon"
+            >
+              Add Coupon
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

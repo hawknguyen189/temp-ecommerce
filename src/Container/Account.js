@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import { UsersContext } from "../Component/Context/UsersContext";
 import PageTitle from "../Component/CommonUse/PageTitle";
 import Login from "../Component/Account/Login";
+import Profile from "../Component/Account/Profile";
 import { auth } from "./Firebase";
 
 const Account = () => {
@@ -43,22 +44,87 @@ const Account = () => {
     <div className="" id="cartPage">
       <PageTitle pageInfo="My Account"></PageTitle>
       {user ? (
-        <div className="container">
-          <h6>Welcome back {user.email}</h6>
-          <p>
-            You can{" "}
-            <a onClick={handleSignout} href="/">
-              sign out
-            </a>{" "}
-            here
-          </p>
-          <p>
-            You can{" "}
-            <a onClick={handleUpdate} href="/">
-              add name
-            </a>{" "}
-            here
-          </p>
+        <div className="container mt-3">
+          <div className="account-tab">
+            <ul className="nav nav-tabs" id="myTab" role="tablist">
+              <li className="nav-item" role="presentation">
+                <a
+                  className="nav-link active"
+                  id="home-tab"
+                  data-toggle="tab"
+                  href="#accountOverview"
+                  role="tab"
+                  aria-controls="accountOverview"
+                  aria-selected="true"
+                >
+                  Your Profile
+                </a>
+              </li>
+              <li className="nav-item" role="presentation">
+                <a
+                  className="nav-link"
+                  id="profile-tab"
+                  data-toggle="tab"
+                  href="#order"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                >
+                  Your Orders
+                </a>
+              </li>
+              <li className="nav-item" role="presentation">
+                <a
+                  className="nav-link"
+                  id="contact-tab"
+                  data-toggle="tab"
+                  href="#contact"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+            <div className="tab-content mt-3" id="myTabContent">
+              <div
+                className="tab-pane fade show active"
+                id="accountOverview"
+                role="tabpanel"
+                aria-labelledby="home-tab"
+              >
+                <h6>Welcome back {user.email}</h6>
+                <p>
+                  You can{" "}
+                  <a onClick={handleUpdate} href="/">
+                    add name
+                  </a>{" "}
+                  here
+                </p>
+                <Profile
+                  handleSignout={handleSignout}
+                  handleUpdate={handleUpdate}
+                ></Profile>
+              </div>
+              <div
+                className="tab-pane fade"
+                id="order"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+              >
+                Order history will be here
+              </div>
+              <div
+                className="tab-pane fade"
+                id="contact"
+                role="tabpanel"
+                aria-labelledby="contact-tab"
+              >
+                ...
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         <Login></Login>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../../Container/Firebase";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const history = useHistory();
