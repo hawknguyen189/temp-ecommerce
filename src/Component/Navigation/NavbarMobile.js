@@ -10,7 +10,7 @@ import "./Navigation.scss";
 const NavbarMobile = () => {
   //use context
   const { itemCount } = useContext(CartContext);
-  const [user, setUser] = useContext(UsersContext);
+  const { user, setUser } = useContext(UsersContext);
   useEffect(() => {
     //have another choice  of using windowScroll hooks instead of this
     // Reads out the scroll position and stores it in the data attribute

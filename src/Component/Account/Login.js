@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { auth } from "../../Container/Firebase";
+import { auth, db } from "../../Container/Firebase";
 import { useHistory } from "react-router-dom";
+// import { UsersContext } from "../Context/UsersContext";
 
 const Login = () => {
   const history = useHistory();
   //   console.log(history);
+
+  // set up useStaet
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const login = (e) => {
+  // add update user context function after sign in or register
+  const hanldeLogin = (e) => {
     e.preventDefault(); //stop refershing page
     // we do login logic here
     auth
@@ -15,17 +19,30 @@ const Login = () => {
       .then((auth) => {
         // sign in successfully, redirect to homepage
         // listen to log in then push to data layout
+        // console.log(auth);
         history.push("/");
       })
       .catch((e) => alert(e.message));
   };
-  const register = (e) => {
+  const hanldeRegister = (e) => {
     e.preventDefault(); //stop refershing page
     // we do registere logic here
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         // created, loged in then redirect to homepage
+        // Add a new document in collection "cities"
+        db.collection("users")
+          .doc(auth.user.uid)
+          .set({
+            email: auth.email,
+          })
+          .then(function (auth) {
+            console.log("Document successfully written!");
+          })
+          .catch(function (error) {
+            console.error("Error writing document: ", error);
+          });
         history.push("/");
       })
       .catch((e) => alert(e.message));
@@ -82,14 +99,14 @@ const Login = () => {
                   <button
                     className="btn btn-lg btn-primary btn-block text-uppercase"
                     type="submit"
-                    onClick={login}
+                    onClick={hanldeLogin}
                   >
                     Sign in
                   </button>
                   <button
                     className="btn btn-lg btn-secondary btn-block text-uppercase"
                     type="submit"
-                    onClick={register}
+                    onClick={hanldeRegister}
                   >
                     Create your account
                   </button>

@@ -8,7 +8,7 @@ import Profile from "../Component/Account/Profile";
 import { auth } from "./Firebase";
 
 const Account = () => {
-  const [user, setUser] = useContext(UsersContext);
+  const {user, setUser} = useContext(UsersContext);
   const history = useHistory();
   const handleSignout = (e) => {
     e.preventDefault();

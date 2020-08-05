@@ -9,7 +9,7 @@ import { UsersContext } from "../Context/UsersContext";
 const Navbar = () => {
   //use context
   const { itemCount } = useContext(CartContext);
-  const [user, setUser] = useContext(UsersContext);
+  const {user, setUser} = useContext(UsersContext);
   // this is for hover menu
   useEffect(() => {
     const $dropdown = $(".dropdown");

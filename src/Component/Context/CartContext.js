@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useMemo } from "react";
 import { CartReducer, sumItems } from "./CartReducer";
 
 export const CartContext = createContext();
@@ -13,8 +13,8 @@ const initialState = {
 };
 
 const CartContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(CartReducer, initialState); 
-  // Reducers specify how the application's state changes in response to actions sent to the store. 
+  const [state, dispatch] = useReducer(CartReducer, initialState);
+  // Reducers specify how the application's state changes in response to actions sent to the store.
   // Remember that actions only describe what happened, but don't describe how the application's state changes.
 
   const increase = (payload) => {
@@ -51,7 +51,6 @@ const CartContextProvider = ({ children }) => {
     handleCheckout,
     ...state,
   };
-
   return (
     <CartContext.Provider value={contextValues}>
       {children}
