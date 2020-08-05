@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
+import { UsersContext } from "../Context/UsersContext";
 import NavMobileDropdown from "./NavMobileDropdown";
 import brandLogo from "../../media/treo-bamboo-logo-green.png";
 import { _debounce } from "../CommonUse/Utils";
@@ -9,6 +10,7 @@ import "./Navigation.scss";
 const NavbarMobile = () => {
   //use context
   const { itemCount } = useContext(CartContext);
+  const [user, setUser] = useContext(UsersContext);
   useEffect(() => {
     //have another choice  of using windowScroll hooks instead of this
     // Reads out the scroll position and stores it in the data attribute
@@ -43,16 +45,20 @@ const NavbarMobile = () => {
       <div className="navbar-mobile container">
         <div tabIndex="0" className="navigation-header row mx-0">
           <div className="col-6 mobile-brand d-flex justify-content-end align-items-center">
-            <img
-              src={brandLogo}
-              className="img-fluid nav-mobile-header"
-              alt="brand-logo"
-              width="90"
-              height="90"
-            />
+            <Link to="/">
+              <img
+                src={brandLogo}
+                className="img-fluid nav-mobile-header"
+                alt="brand-logo"
+                width="90"
+                height="90"
+              />
+            </Link>
           </div>
           <div className="nav-mobile-icon col-6 d-flex align-items-center justify-content-end">
-            <i className="fas fa-user-circle nav-icon pr-4"></i>
+            <Link to={user ? `/account` : `/login`}>
+              <i className="fas fa-user-circle nav-icon pr-4"></i>
+            </Link>
             <i className="far fa-heart nav-icon pr-4"></i>
             <Link to="/cart">
               <i className="fas fa-shopping-cart nav-icon pr-4">
@@ -94,7 +100,12 @@ const NavbarMobile = () => {
               <NavMobileDropdown
                 navMenu="Shop"
                 className=""
-                navList={["Shop 1", "Shop 2", "Shop 3"]}
+                navList={[
+                  { navName: "My Account", navPath: "account" },
+                  { navName: "My Cart", navPath: "cart" },
+                  { navName: "Check Out", navPath: "checkout" },
+                  { navName: "Wishlist", navPath: "wishlist" },
+                ]}
                 path="#storeSection"
               ></NavMobileDropdown>
 

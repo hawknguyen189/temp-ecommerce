@@ -7,12 +7,15 @@ import App from "./App";
 import { HelmetProvider } from "react-helmet-async";
 import ProductsContextProvider from "./Component/Context/ProductsContext";
 import CartContextProvider from "./Component/Context/CartContext";
+import UsersContextProvider from "./Component/Context/UsersContext";
 ReactDOM.render(
   <HelmetProvider>
     <ProductsContextProvider>
-      <CartContextProvider>
-        <App />
-      </CartContextProvider>
+      <UsersContextProvider>
+        <CartContextProvider>
+          <App />
+        </CartContextProvider>
+      </UsersContextProvider>
     </ProductsContextProvider>
   </HelmetProvider>,
 

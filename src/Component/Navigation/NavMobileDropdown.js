@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavMobileDropdown = (props) => {
   return (
@@ -15,13 +16,17 @@ const NavMobileDropdown = (props) => {
         {props.navMenu}
       </a>
       <div className="dropdown-menu" aria-labelledby="navMobileDropwdown">
-          {props.navList.map((value,index)=>{
-              return (
-                <a className="dropdown-item" href="#" key={index}>
-                  {value}
-                </a>
-              );
-          })}
+        {props.navList.map((value, index) => {
+          return (
+            <Link
+              className="dropdown-item"
+              to={`/${value.navPath}`}
+              key={index}
+            >
+              {value.navName}
+            </Link>
+          );
+        })}
       </div>
     </li>
   );

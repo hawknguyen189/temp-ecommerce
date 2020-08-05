@@ -15,6 +15,8 @@ const Cart = () => {
     checkout,
     handleCheckout,
   } = useContext(CartContext);
+  // const foo = useContext(CartContext)
+  // console.log("foo ", foo);
   return (
     <div className="" id="cartPage">
       <PageTitle pageInfo="Cart"></PageTitle>

@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 let addDivider = "dropdown-divider";
-const NavDropdown = props => {
+const NavDropdown = (props) => {
   return (
     <li className={`nav-item dropdown ${props.className}`}>
       {/*  eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -21,9 +23,10 @@ const NavDropdown = props => {
           }
           return (
             <div className="sub-nav" key={index}>
-              <a className="dropdown-item" href="#">
-                {value}
-              </a>
+              <Link className="dropdown-item" to={`/${value.navPath}`}>
+                {value.navName}
+              </Link>
+              {/* <a className="dropdown-item" href="#"></a> */}
               <div className={addDivider}></div>
             </div>
           );

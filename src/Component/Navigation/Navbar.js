@@ -1,14 +1,15 @@
 import React, { useEffect, useContext } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import brandLogo from "../../media/treo-bamboo-logo-green.png";
 import NavDropdown from "./NavDropdown";
 import $ from "jquery";
+import { UsersContext } from "../Context/UsersContext";
 
 const Navbar = () => {
   //use context
   const { itemCount } = useContext(CartContext);
-
+  const [user, setUser] = useContext(UsersContext);
   // this is for hover menu
   useEffect(() => {
     const $dropdown = $(".dropdown");
@@ -44,7 +45,7 @@ const Navbar = () => {
       <div className="navbar-desktop navbar-light bg-light">
         <div className="row">
           <div className="col-3 d-flex align-items-center justify-content-center">
-            <a className="" href="/">
+            <Link to="/">
               <img
                 src={brandLogo}
                 className="img-fluid"
@@ -52,7 +53,7 @@ const Navbar = () => {
                 width="155"
                 height="155"
               />
-            </a>
+            </Link>
           </div>
           <nav id="navBar" className="navbar navbar-expand-lg col-6">
             <button
@@ -98,7 +99,12 @@ const Navbar = () => {
                 <NavDropdown
                   navMenu="Shop"
                   className=""
-                  navList={["Shop 1", "Shop 2", "Shop 3"]}
+                  navList={[
+                    { navName: "My Account", navPath: "account" },
+                    { navName: "My Cart", navPath: "cart" },
+                    { navName: "Check Out", navPath: "checkout" },
+                    { navName: "Wishlist", navPath: "wishlist" },
+                  ]}
                   path="#storeSection"
                 ></NavDropdown>
               </ul>
@@ -135,7 +141,10 @@ const Navbar = () => {
             </div>
           </nav>
           <div className="col-3 d-flex align-items-center justify-content-center">
-            <i className="fas fa-user-circle nav-icon"></i>
+            <p className="mb-0 mr-2 header-content">Hi {user && <span>{user.email}</span>}</p>
+            <Link to={user ? `/account` : `/login`}>
+              <i className="fas fa-user-circle nav-icon"></i>
+            </Link>
             <i className="far fa-heart nav-icon pl-4"></i>
             <Link to="/cart">
               <i className="fas fa-shopping-cart nav-icon pl-4">
