@@ -9,7 +9,7 @@ const CartItem = ({ product, index, productID }) => {
   const { increase, decrease, removeProduct } = useContext(CartContext);
   const { productData } = useContext(ProductsContext);
   const productPath = productLink(product.productName);
-  const productPrice = productData.find((e) => e.id === productID).productPrice;
+  const productPrice = productData.find((e) => e.id === productID).fields.price;
   return (
     <tr>
       <th scope="row">

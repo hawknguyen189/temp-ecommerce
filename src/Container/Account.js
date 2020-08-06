@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { UsersContext } from "../Component/Context/UsersContext";
@@ -45,12 +45,17 @@ const Account = () => {
     // Add a new document in collection "cities"
     db.collection("users")
       .doc(login.uid)
-      .set(userinfo, { merge: true })
+      .update({
+        ...userinfo,
+        timestamp: db.FieldValue.serverTimestamp(),
+      })
       .then(function () {
-        console.log("Document successfully written!");
+        // console.log("Document successfully updated!");
+        alert("Document successfully updated!");
       })
       .catch(function (error) {
-        console.error("Error writing document: ", error);
+        alert("Error updating  document: ", error);
+        // console.error("Error updating  document: ", error);
       });
   };
 

@@ -104,6 +104,7 @@ const Navbar = () => {
                     { navName: "My Cart", navPath: "cart" },
                     { navName: "Check Out", navPath: "checkout" },
                     { navName: "Wishlist", navPath: "wishlist" },
+                    { navName: "Shop", navPath: "shop" },
                   ]}
                   path="#storeSection"
                 ></NavDropdown>

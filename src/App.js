@@ -18,6 +18,7 @@ import Subscription from "./Container/Subscription";
 import Footer from "./Container/Footer";
 import Cart from "./Container/Cart";
 import Account from "./Container/Account";
+import Shop from "./Container/Shop";
 import NotFound from "./Container/NotFound";
 import Login from "./Component/Account/Login";
 import { UsersContext } from "./Component/Context/UsersContext";
@@ -94,22 +95,11 @@ function App() {
           </Route>
           <Route path="/cart" component={Cart} />
           <Route path="/account" component={Account} />
+          <Route path="/shop" component={Shop} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Route path="/" component={Footer} />
       </Router>
-      {/* <MainBackground />
-      <Navbar />
-      <NavbarMobile />
-      <main>
-        <Introduction />
-        <ProductShow />
-        <Delivery />
-        <Testimonials />
-        <Blog />
-        <Subscription />
-      </main>
-      <Footer /> */}
     </div>
   );
 }
