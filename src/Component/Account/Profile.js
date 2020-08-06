@@ -1,11 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useContext } from "react";
+import places from "places.js";
 
-const Profile = (props) => {
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
-  //   const [fname, setFname] = useState("");
-  //   const [fname, setFname] = useState("");
-  //   const [fname, setFname] = useState("");
+import { UsersContext } from "../Context/UsersContext";
+
+const Profile = ({
+  handleChange,
+  handleSignout,
+  handleUpdate,
+  userinfo,
+  setUserinfo,
+}) => {
+  const { user } = useContext(UsersContext);
+  // add algolia autocomplete address
+  useEffect(() => {
+    const options = {
+      appId: "pl1KDX3VAWUU",
+      apiKey: "0d16c71eed86b1bc0d0b341377df9fa1",
+      container: document.querySelector("#addressAuto"),
+      // ...
+    };
+    const placesAutocomplete = places(options);
+    placesAutocomplete.on("change", (e) => {
+      const suggestion = e.suggestion;
+      //   console.log(suggestion);
+      setUserinfo((userinfo) => ({
+        ...userinfo,
+        address: suggestion.name,
+        city: suggestion.city,
+        province: suggestion.administrative,
+        postalcode: suggestion.postcode,
+        country: suggestion.country,
+      }));
+    });
+    // console.log("places autocomplete ", placesInstance)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     //  <!-- form user info -->
     <div className="card card-outline-secondary">
@@ -21,9 +50,10 @@ const Profile = (props) => {
             <div className="col-lg-9">
               <input
                 className="form-control"
+                name="fname"
                 type="text"
-                onChange={(e) => setFname(e.target.value)}
-                value={fname}
+                onChange={handleChange}
+                value={userinfo.fname || ""}
                 placeholder="First Name"
               />
             </div>
@@ -35,9 +65,10 @@ const Profile = (props) => {
             <div className="col-lg-9">
               <input
                 className="form-control"
+                name="lname"
                 type="text"
-                value={lname}
-                onChange={(e) => setLname(e.target.value)}
+                onChange={handleChange}
+                value={userinfo.lname || ""}
                 placeholder="Last Name"
               />
             </div>
@@ -49,8 +80,9 @@ const Profile = (props) => {
             <div className="col-lg-9">
               <input
                 className="form-control"
+                name="email"
                 type="email"
-                value="email@gmail.com"
+                value={user.email || ""}
                 disabled
               />
             </div>
@@ -60,56 +92,122 @@ const Profile = (props) => {
               Phone#
             </label>
             <div className="col-lg-9">
-              <input className="form-control" type="number" value="" />
+              <input
+                className="form-control"
+                name="phone"
+                type="number"
+                onChange={handleChange}
+                value={userinfo.phone || ""}
+                placeholder="Phone Number"
+              />
             </div>
           </div>
-          <div className="form-group row">
-            <label className="col-lg-3 col-form-label form-control-label">
-              Website
-            </label>
-            <div className="col-lg-9">
-              <input className="form-control" type="url" value="" />
+          {/* address container */}
+          <div className="form-group address-container">
+            <div className="row">
+              <label className="col-lg-3 col-form-label form-control-label">
+                Location Autocomplete
+              </label>
+              <div className="col-lg-9">
+                <input
+                  className="form-control"
+                  id="addressAuto"
+                  name="autocomplete"
+                  type="text"
+                  onChange={handleChange}
+                  value={userinfo.autocomplete || ""}
+                  placeholder="Autocomplete Address"
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group row">
-            <label className="col-lg-3 col-form-label form-control-label">
-              Time Zone
-            </label>
-            <div className="col-lg-9">
-              <select id="user_time_zone" className="form-control" size="0">
-                <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                <option value="Alaska">(GMT-09:00) Alaska</option>
-                <option value="Pacific Time (US &amp; Canada)">
-                  (GMT-08:00) Pacific Time (US &amp; Canada)
-                </option>
-                <option value="Arizona">(GMT-07:00) Arizona</option>
-                <option value="Mountain Time (US &amp; Canada)">
-                  (GMT-07:00) Mountain Time (US &amp; Canada)
-                </option>
-                <option value="Central Time (US &amp; Canada)" defaultValue>
-                  (GMT-06:00) Central Time (US &amp; Canada)
-                </option>
-                <option value="Eastern Time (US &amp; Canada)">
-                  (GMT-05:00) Eastern Time (US &amp; Canada)
-                </option>
-                <option value="Indiana (East)">
-                  (GMT-05:00) Indiana (East)
-                </option>
-              </select>
+            <div className="row">
+              <div className="col-sm">
+                <label className="col-form-label form-control-label">
+                  Address
+                </label>
+                <div className="">
+                  <input
+                    className="form-control"
+                    id="mainAddress"
+                    name="address"
+                    type="text"
+                    onChange={handleChange}
+                    value={userinfo.address || ""}
+                    placeholder="Home Address"
+                  />
+                </div>
+              </div>
+              <div className="col-sm-2">
+                <label className="col-form-label form-control-label">
+                  City
+                </label>
+                <div className="">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="city"
+                    onChange={handleChange}
+                    value={userinfo.city || ""}
+                    placeholder="City"
+                  />
+                </div>
+              </div>
+              <div className="col-sm-2">
+                <label className="col-form-label form-control-label">
+                  State/Province
+                </label>
+                <div className="">
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="province"
+                    onChange={handleChange}
+                    value={userinfo.province || ""}
+                    placeholder="State or Province"
+                  />
+                </div>
+              </div>
+              <div className="col-sm-2">
+                <label className="col-form-label form-control-label">
+                  Postal Code
+                </label>
+                <div className="">
+                  <input
+                    className="form-control"
+                    name="postalcode"
+                    type="text"
+                    onChange={handleChange}
+                    value={userinfo.postalcode || ""}
+                    placeholder="Postal / Zip Code"
+                  />
+                </div>
+              </div>
+              <div className="col-sm-2">
+                <label className="col-form-label form-control-label">
+                  Country
+                </label>
+                <div className="">
+                  <input
+                    className="form-control"
+                    name="country"
+                    type="text"
+                    onChange={handleChange}
+                    value={userinfo.country || ""}
+                    placeholder="Country"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="form-group row">
-            <label className="col-lg-3 col-form-label form-control-label"></label>
-            <div className="col-lg-9">
-              <input
-                type="button"
-                className="btn btn-primary"
-                value="Save Changes"
-              />
+          <div className="form-group d-flex justify-content-end">
+            <div className="">
+              <button className="btn btn-primary mr-3" onClick={handleUpdate}>
+                Update Changes
+              </button>
               <button
                 className="btn btn-secondary"
-                onClick={props.handleSignout}
+                onClick={(e) => handleSignout(e)}
               >
                 Sign Out
               </button>

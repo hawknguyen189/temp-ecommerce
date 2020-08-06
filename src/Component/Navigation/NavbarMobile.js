@@ -10,7 +10,7 @@ import "./Navigation.scss";
 const NavbarMobile = () => {
   //use context
   const { itemCount } = useContext(CartContext);
-  const { user, setUser } = useContext(UsersContext);
+  const { user, setUser, login } = useContext(UsersContext);
   useEffect(() => {
     //have another choice  of using windowScroll hooks instead of this
     // Reads out the scroll position and stores it in the data attribute
@@ -56,7 +56,7 @@ const NavbarMobile = () => {
             </Link>
           </div>
           <div className="nav-mobile-icon col-6 d-flex align-items-center justify-content-end">
-            <Link to={user ? `/account` : `/login`}>
+            <Link to={login ? `/account` : `/login`}>
               <i className="fas fa-user-circle nav-icon pr-4"></i>
             </Link>
             <i className="far fa-heart nav-icon pr-4"></i>

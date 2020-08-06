@@ -9,7 +9,7 @@ import { UsersContext } from "../Context/UsersContext";
 const Navbar = () => {
   //use context
   const { itemCount } = useContext(CartContext);
-  const {user, setUser} = useContext(UsersContext);
+  const { user, setUser, login } = useContext(UsersContext);
   // this is for hover menu
   useEffect(() => {
     const $dropdown = $(".dropdown");
@@ -141,8 +141,10 @@ const Navbar = () => {
             </div>
           </nav>
           <div className="col-3 d-flex align-items-center justify-content-center">
-            <p className="mb-0 mr-2 header-content">Hi {user && <span>{user.email}</span>}</p>
-            <Link to={user ? `/account` : `/login`}>
+            <p className="mb-0 mr-2 header-content">
+              Hi {user && <span>{user.email}</span>}
+            </p>
+            <Link to={login ? `/account` : `/login`}>
               <i className="fas fa-user-circle nav-icon"></i>
             </Link>
             <i className="far fa-heart nav-icon pl-4"></i>

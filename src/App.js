@@ -52,7 +52,7 @@ function App() {
       if (authUser) {
         // the user is logged in
         // setUser(authUser);
-        updateUser("users",authUser.uid);
+        // updateUser("users",authUser.uid);
         setLogin(authUser);
       } else {
         //the user is logged out

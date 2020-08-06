@@ -1,15 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { UsersContext } from "../Component/Context/UsersContext";
 import PageTitle from "../Component/CommonUse/PageTitle";
 import Login from "../Component/Account/Login";
 import Profile from "../Component/Account/Profile";
-import { auth } from "./Firebase";
+import { auth, db } from "./Firebase";
 
 const Account = () => {
-  const {user, setUser} = useContext(UsersContext);
   const history = useHistory();
+  const { user, setUser, login } = useContext(UsersContext);
+  const [userinfo, setUserinfo] = useState({
+    fname: "",
+    lname: "",
+    phone: "",
+    address: "",
+    city: "",
+    province: "",
+    postalcode: "",
+    country: "",
+    autocomplete: "",
+  });
+  const handleChange = (e) => {
+    // e.preventDefault();
+    // console.log("test foo ", e.target.name)
+    setUserinfo({
+      ...userinfo,
+      [e.target.name]: e.target.value,
+    });
+  };
   const handleSignout = (e) => {
     e.preventDefault();
     auth
@@ -23,27 +42,22 @@ const Account = () => {
   };
   const handleUpdate = (e) => {
     e.preventDefault();
-    const user = auth.currentUser;
-
-    user
-      .updateProfile({
-        displayName: "Andrew",
-        photoURL: "https://example.com/jane-q-user/profile.jpg",
-      })
+    // Add a new document in collection "cities"
+    db.collection("users")
+      .doc(login.uid)
+      .set(userinfo, { merge: true })
       .then(function () {
-        // Update successful.
-        console.log("yay");
-        console.log(user);
+        console.log("Document successfully written!");
       })
       .catch(function (error) {
-        // An error happened.
-        alert(error.message);
+        console.error("Error writing document: ", error);
       });
   };
+
   return (
     <div className="" id="cartPage">
       <PageTitle pageInfo="My Account"></PageTitle>
-      {user ? (
+      {login ? (
         <div className="container mt-3">
           <div className="account-tab">
             <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -95,15 +109,12 @@ const Account = () => {
                 aria-labelledby="home-tab"
               >
                 <h6>Welcome back {user.email}</h6>
-                <p>
-                  You can{" "}
-                  <a onClick={handleUpdate} href="/">
-                    add name
-                  </a>{" "}
-                  here
-                </p>
+
                 <Profile
                   handleSignout={handleSignout}
+                  handleChange={handleChange}
+                  userinfo={userinfo}
+                  setUserinfo={setUserinfo}
                   handleUpdate={handleUpdate}
                 ></Profile>
               </div>
