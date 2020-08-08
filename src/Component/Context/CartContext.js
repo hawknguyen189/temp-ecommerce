@@ -50,7 +50,8 @@ const CartContextProvider = ({ children }) => {
   const CartReducer = useCallback(
     (state, action) => {
       switch (action.type) {
-        case "INITIATE_DATA":
+        case "INITIATE_DATA": //to run update useReducer state only after fetching productData
+          console.log("inside reducer to initite data");
           return {
             ...state,
             ...sumItems(state.cartItems),
@@ -164,9 +165,13 @@ const CartContextProvider = ({ children }) => {
     console.log("CHECKOUT", state);
     dispatch({ type: "CHECKOUT" });
   };
+
   useEffect(() => {
+    // use to re-update useReduder state after fetching productData (total)
+    console.log("initiating data");
     dispatch({ type: "INITIATE_DATA", productData });
   }, [productData]);
+
   const contextValues = {
     removeProduct,
     addProduct,

@@ -12,6 +12,7 @@ const ProductsContextProvider = ({ children }) => {
     client
       .getEntries({ content_type: "product" })
       .then((response) => {
+        console.log("product data ready yeah yeah")
         setProductData(response.items);
       })
       .catch(console.error);
