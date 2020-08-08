@@ -1,23 +1,128 @@
-import React, { createContext, useReducer } from "react";
-import { CartReducer, sumItems } from "./CartReducer";
+import React, { createContext, useReducer, useContext } from "react";
+// import { CartReducer, sumItems } from "./CartReducer";
+import { ProductsContext } from "./ProductsContext";
 
 export const CartContext = createContext();
 
 const storage = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart"))
   : [];
-const initialState = {
-  cartItems: storage, //cartItems retrieves data from localStorage
-  ...sumItems(storage),
-  checkout: false,
-};
 
 const CartContextProvider = ({ children }) => {
+  const { productData } = useContext(ProductsContext);
+
+  const Storage = (cartItems) => {
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(cartItems.length > 0 ? cartItems : [])
+    );
+  };
+
+  const sumItems = (cartItems) => {
+    Storage(cartItems);
+    console.log("get product data inside sumitems ", productData);
+    let itemCount = cartItems.reduce(
+      (total, product) => total + product.quantity,
+      0
+    );
+    let total = cartItems
+      .reduce((sub, product) => {
+        let productPrice = 0;
+        if (productData) {
+          productPrice = productData.find((e) => e.sys.id === product.sys.id)
+            .fields.price;
+        }
+        console.log("find price?", productPrice);
+        console.log("find quantity?", product.quantity);
+        return sub + productPrice * product.quantity;
+      }, 0)
+      .toFixed(2);
+    console.log("total?", total);
+    return { itemCount, total };
+  };
+
+  const CartReducer = (state, action) => {
+    switch (action.type) {
+      case "ADD_ITEM":
+        if (
+          !state.cartItems.find((item) => item.sys.id === action.payload.sys.id)
+        ) {
+          state.cartItems.push({
+            ...action.payload,
+            quantity: 1,
+          });
+        }
+
+        return {
+          ...state,
+          ...sumItems(state.cartItems),
+          cartItems: [...state.cartItems],
+        };
+      case "REMOVE_ITEM":
+        return {
+          ...state,
+          ...sumItems(
+            state.cartItems.filter(
+              (item) => item.sys.id !== action.payload.sys.id
+            )
+          ),
+          cartItems: [
+            ...state.cartItems.filter(
+              (item) => item.sys.id !== action.payload.sys.id
+            ),
+          ],
+        };
+      case "INCREASE":
+        state.cartItems[
+          state.cartItems.findIndex(
+            (item) => item.sys.id === action.payload.sys.id
+          )
+        ].quantity++;
+        console.log("inside increase ", state);
+        return {
+          ...state,
+          ...sumItems(state.cartItems),
+          cartItems: [...state.cartItems],
+        };
+      case "DECREASE":
+        state.cartItems[
+          state.cartItems.findIndex(
+            (item) => item.sys.id === action.payload.sys.id
+          )
+        ].quantity--;
+        return {
+          ...state,
+          ...sumItems(state.cartItems),
+          cartItems: [...state.cartItems],
+        };
+      case "CHECKOUT":
+        return {
+          cartItems: [],
+          checkout: true,
+          ...sumItems([]),
+        };
+      case "CLEAR":
+        return {
+          cartItems: [],
+          ...sumItems([]),
+        };
+      default:
+        return state;
+    }
+  };
+
+  const initialState = {
+    cartItems: storage, //cartItems retrieves data from localStorage
+    ...sumItems(storage),
+    checkout: false,
+  };
+  console.log("inside cart context ", initialState);
   const [state, dispatch] = useReducer(CartReducer, initialState);
   // Reducers specify how the application's state changes in response to actions sent to the store.
   // Remember that actions only describe what happened, but don't describe how the application's state changes.
 
   const increase = (payload) => {
+    console.log("what is payload  ", payload);
     dispatch({ type: "INCREASE", payload });
   };
 

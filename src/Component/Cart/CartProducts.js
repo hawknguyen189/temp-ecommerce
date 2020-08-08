@@ -31,10 +31,10 @@ const CartProducts = () => {
         <tbody>
           {cartItems.map((product, index) => (
             <CartItem
-              key={product.id}
+              key={product.sys.id}
               product={product}
               index={index}
-              productID={product.id}
+              productID={product.sys.id}
             />
           ))}
         </tbody>

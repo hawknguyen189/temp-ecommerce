@@ -3,13 +3,17 @@ import { CartContext } from "../Context/CartContext";
 import { ProductsContext } from "../Context/ProductsContext";
 
 import { formatNumber } from "../CommonUse/Utils";
-import { productLink } from "../CommonUse/Utils";
+// import { productLink } from "../CommonUse/Utils";
 
 const CartItem = ({ product, index, productID }) => {
   const { increase, decrease, removeProduct } = useContext(CartContext);
   const { productData } = useContext(ProductsContext);
-  const productPath = productLink(product.productName);
-  const productPrice = productData.find((e) => e.id === productID).fields.price;
+  // const productPath = productLink(product.productName);
+  let productPrice;
+  if (productData) {
+    productPrice = productData.find((e) => e.sys.id === productID).fields
+      .price;
+  }
   return (
     <tr>
       <th scope="row">
@@ -29,10 +33,12 @@ const CartItem = ({ product, index, productID }) => {
         <div className="row">
           <img
             alt={product.name}
-            src={require("../../media/products/" + productPath + ".jpg")}
+            src={"https:" + product.fields.image[0].fields.file.url}
             className="col-sm-4 img-fluid product-image"
           />
-          <p className="mb-1 product-name col-sm-4">{product.productName}</p>
+          <p className="mb-1 product-name col-sm-4">
+            {product.fields.productName}
+          </p>
         </div>
       </td>
       <td>
