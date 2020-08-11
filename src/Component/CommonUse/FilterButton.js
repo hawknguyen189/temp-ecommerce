@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./FilterButton.scss";
 import { StoreContext } from "../Context/StoreContext";
+import { ProductsContext } from "../Context/ProductsContext";
 
 const FilterButton = props => {
   // eslint-disable-next-line no-unused-vars
   const [tag, setTag] = React.useContext(StoreContext);
+  const { productData } = useContext(ProductsContext);
   const handleFilterButton = event => {
     // event.persist(); //without this the event will return only null, this is for react performance purpose
     const filterData = event.target.dataset.filterValue.split("-");
@@ -22,31 +24,31 @@ const FilterButton = props => {
         </button>
         <button
           onClick={handleFilterButton}
-          data-filter-value="fruit-vegie"
+          data-filter-value="new-arrival"
           className="col-sm btn btn-outline-info mr-2 ml-2 filter-button"
         >
-          FRUIT & VEGIES
+          New Arrival
         </button>
         <button
           onClick={handleFilterButton}
-          data-filter-value="juice"
+          data-filter-value="mask"
           className="col-sm btn btn-outline-info mr-2 ml-2 filter-button"
         >
-          JUICE
+          Face Mask
         </button>
         <button
           onClick={handleFilterButton}
-          data-filter-value="processedFood"
+          data-filter-value="glove"
           className="col-sm btn btn-outline-info mr-2 ml-2 filter-button"
         >
-          PROCESSED FOOD
+          Nitrile & Latex Glove
         </button>
         <button
           onClick={handleFilterButton}
-          data-filter-value="skinCare"
+          data-filter-value="gown"
           className="col-sm btn btn-outline-info mr-2 ml-2 filter-button"
         >
-          SKIN CARE
+          Gowns
         </button>
       </div>
     </div>

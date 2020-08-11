@@ -89,17 +89,33 @@
           width: 48px;
           height: 48px;
           background-color: $gray-text;
-          color:snow;
+          color: snow;
           opacity: 0.9;
           font-size: 1em;
         }
-        .add-to-cart>a{
+        .add-to-cart > a {
           background-color: $main-green-text;
         }
       }
     }
   }
 }
-.fit-img{
+.fit-img {
   object-fit: cover;
 }
+
+@media (min-width: 992px) {
+  .product-image {
+    height: 280px !important;
+    // padding-bottom: 100%;
+  }
+  .product-desc {
+    height: 150px !important;
+  }
+}
+// @media (max-width: 767.98px) {
+//   .product-thumb {
+//     height: 270px !important;
+//     // padding-bottom: 100%;
+//   }
+// }

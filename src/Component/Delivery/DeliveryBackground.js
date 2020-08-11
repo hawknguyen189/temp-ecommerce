@@ -19,7 +19,7 @@ const DeliveryBackground = () => {
           processStep="step-2"
           processContent={{
             step: "Step 2",
-            description: "Connect To Nearest Farm"
+            description: "Connect To Our Manufacturer Network"
           }}
         />
         <DeliveryProcess
@@ -27,7 +27,7 @@ const DeliveryBackground = () => {
           processStep="step-3"
           processContent={{
             step: "Step 3",
-            description: "Share Your Location"
+            description: "Prepare Your Order"
           }}
         />
         <DeliveryProcess
