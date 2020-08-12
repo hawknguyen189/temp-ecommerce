@@ -1,16 +1,13 @@
 import React from "react";
 import FilterButton from "../CommonUse/FilterButton";
-import FrontPageProducts from "./FrontPageProducts";
-import { StoreContextProvider } from "../Context/StoreContext";
+import StoreProduct from "./StoreProduct";
 
-const FilterBar = () => {
+const FilterBar = ({ storeDivision }) => {
   return (
-    <StoreContextProvider>
-      <div>
-        <FilterButton />
-        <FrontPageProducts />
-      </div>
-    </StoreContextProvider>
+    <div id="storeSection">
+      <FilterButton />
+      <StoreProduct storeDivision={storeDivision} />
+    </div>
   );
 };
 export default FilterBar;

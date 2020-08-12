@@ -55,6 +55,7 @@
     }
   }
   .product-lot {
+    height: 440px;
     .product-thumb {
       img {
         transition: all 0.5s;
@@ -114,8 +115,7 @@
   }
 }
 // @media (max-width: 767.98px) {
-//   .product-thumb {
-//     height: 270px !important;
-//     // padding-bottom: 100%;
+//   .product-lot{
+//     height:550px;
 //   }
 // }

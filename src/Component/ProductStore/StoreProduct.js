@@ -1,15 +1,13 @@
 import React, { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
-import products from "./ProductsData";
 import { StoreContext } from "../Context/StoreContext";
 import { ProductsContext } from "../Context/ProductsContext";
 
-const FrontPageProducts = () => {
+const StoreProduct = ({ storeDivision }) => {
   //use context
   const { addProduct, cartItems, increase } = useContext(CartContext);
   const { productData } = useContext(ProductsContext);
-  const [tag, setTag] = React.useContext(StoreContext);
-
+  const [tag, setTag] = useContext(StoreContext);
   const isInCart = (product) => {
     return !!cartItems.find((item) => item.sys.id === product.sys.id);
   }; //check this item already in cart
@@ -32,13 +30,13 @@ const FrontPageProducts = () => {
     });
   }
   return (
-    <div id="storeSection" className="container mt-3">
+    <div className="container mt-3">
       {productData && (
         <div className="row product-shelf">
           {filteredProducts.map((product, index) => {
             return (
               <div
-                className="col-sm-3 pr-2 pl-2 pb-2 pt-2 product-lot"
+                className={`${storeDivision} pr-2 pl-2 pb-2 pt-2 product-lot`}
                 key={index}
               >
                 <div className="card">
@@ -117,4 +115,4 @@ const FrontPageProducts = () => {
   );
 };
 
-export default FrontPageProducts;
+export default StoreProduct;

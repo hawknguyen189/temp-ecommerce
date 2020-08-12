@@ -7,12 +7,20 @@ const ProductsContextProvider = ({ children }) => {
   // let products = [];
   const [productData, setProductData] = useState("");
   const [deal, setDeal] = useState("");
+  const [category, setCategory] = useState([
+    "all",
+    "new-arrival",
+    "mask",
+    "glove",
+    "gown",
+  ]);
+  console.log(category);
   useEffect(() => {
     // retrieve product data from contenful
     client
       .getEntries({ content_type: "product" })
       .then((response) => {
-        console.log("product data ready yeah yeah")
+        console.log("product data ready yeah yeah");
         setProductData(response.items);
       })
       .catch(console.error);
@@ -46,8 +54,10 @@ const ProductsContextProvider = ({ children }) => {
       setProductData,
       deal,
       setDeal,
+      category,
+      setCategory,
     }),
-    [productData, deal]
+    [productData, deal, category]
   );
   return (
     <ProductsContext.Provider value={contextValues}>

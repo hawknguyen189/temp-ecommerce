@@ -12,7 +12,7 @@ const ProductShow = () => {
     >
       <Deals />
       <SectionTitle title="OUR PRODUCTS" desc="-Featured Products-" />
-      <FilterBar />
+      <FilterBar storeDivision="col-sm-3"/>
     </section>
   );
 };
