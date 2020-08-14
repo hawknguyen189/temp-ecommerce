@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect, useMemo } from "react";
-// import products from "../ProductStore/ProductsData";
 import client from "../../Container/Contentful";
 export const ProductsContext = createContext();
 
@@ -14,13 +13,11 @@ const ProductsContextProvider = ({ children }) => {
     "glove",
     "gown",
   ]);
-  console.log(category);
   useEffect(() => {
     // retrieve product data from contenful
     client
       .getEntries({ content_type: "product" })
       .then((response) => {
-        console.log("product data ready yeah yeah");
         setProductData(response.items);
       })
       .catch(console.error);

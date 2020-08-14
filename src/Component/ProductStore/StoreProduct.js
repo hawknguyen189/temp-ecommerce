@@ -1,37 +1,19 @@
 import React, { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
-import { StoreContext } from "../Context/StoreContext";
 import { ProductsContext } from "../Context/ProductsContext";
 
-const StoreProduct = ({ storeDivision }) => {
+const StoreProduct = ({ storeDivision, filteredProducts }) => {
   //use context
   const { addProduct, cartItems, increase } = useContext(CartContext);
   const { productData } = useContext(ProductsContext);
-  const [tag, setTag] = useContext(StoreContext);
+
   const isInCart = (product) => {
     return !!cartItems.find((item) => item.sys.id === product.sys.id);
   }; //check this item already in cart
 
-  // eslint-disable-next-line no-unused-vars
-  // create filtered products array
-  let filteredProducts;
-  if (tag.includes("all")) {
-    filteredProducts = [...productData]; //copy products array
-  } else {
-    filteredProducts = productData.filter((product) => {
-      let showProduct = false;
-      for (let i = 0; i < tag.length; i++) {
-        if (product.fields.tags.includes(tag[i])) {
-          showProduct = true;
-          break;
-        }
-      }
-      return showProduct === true;
-    });
-  }
   return (
     <div className="container mt-3">
-      {productData && (
+      {filteredProducts && (
         <div className="row product-shelf">
           {filteredProducts.map((product, index) => {
             return (

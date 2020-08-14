@@ -5,12 +5,27 @@ import { ProductsContext } from "../Context/ProductsContext";
 
 const FilterButton = (props) => {
   // eslint-disable-next-line no-unused-vars
-  const [tag, setTag] = React.useContext(StoreContext);
-  const { category } = useContext(ProductsContext);
+  const { productHome, setProductHome } = React.useContext(StoreContext);
+  const { category, productData } = useContext(ProductsContext);
   const handleFilterButton = (event) => {
     // event.persist(); //without this the event will return only null, this is for react performance purpose
-    const filterData = event.target.dataset.filterValue.split("-");
-    setTag(filterData);
+    const tag = event.target.dataset.filterValue;
+    let filteredProducts;
+    if (tag.includes("all")) {
+      filteredProducts = [...productData]; //copy products array
+    } else {
+      filteredProducts = productData.filter((product) => {
+        let showProduct = false;
+        for (let i = 0; i < tag.length; i++) {
+          if (product.fields.tags.includes(tag[i])) {
+            showProduct = true;
+            break;
+          }
+        }
+        return showProduct === true;
+      });
+    }
+    setProductHome(filteredProducts);
   };
   return (
     <div className="container text-center">
