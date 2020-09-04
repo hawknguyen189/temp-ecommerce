@@ -17,16 +17,20 @@ const ShopSideBar = ({ category }) => {
     const tag = event.target.dataset.filterValue;
     // handle changes on tag
     if (tag) {
-      filteredProducts = filteredProducts.filter((product) => {
-        let showProduct = false;
-        for (let i = 0; i < tag.length; i++) {
-          if (product.fields.tags.includes(tag[i])) {
-            showProduct = true;
-            break;
+      if (tag.toUpperCase() === "ALL") {
+        filteredProducts = [...productData];
+      } else {
+        filteredProducts = filteredProducts.filter((product) => {
+          let showProduct = false;
+          for (let i = 0; i < tag.length; i++) {
+            if (product.fields.tags.includes(tag[i])) {
+              showProduct = true;
+              break;
+            }
           }
-        }
-        return showProduct === true;
-      });
+          return showProduct === true;
+        });
+      }
     }
 
     setProductShop(filteredProducts);

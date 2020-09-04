@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import { UsersContext } from "../Context/UsersContext";
 import NavMobileDropdown from "./NavMobileDropdown";
-import brandLogo from "../../media/treo-bamboo-logo-green.png";
+import brandLogo from "../../media/logo.png";
 import { _debounce } from "../CommonUse/Utils";
 import "./Navigation.scss";
 

@@ -3,9 +3,11 @@ import * as contentful from "contentful";
 const client = contentful.createClient({
   // This is the space ID. A space is like a project folder in Contentful terms
 
-  space: process.env.REACT_APP_CONTENTFUL_SPACE,
+  space: "2iaa0iutda2i",
+  // space: process.env.REACT_APP_CONTENTFUL_SPACE,
   // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-  accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+  accessToken: "Z7EiiFRb5EBNy4oJeSm8PGEqUTUpQhb6PHEoH2z32Ek",
+  // accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
 });
 // // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
 // client

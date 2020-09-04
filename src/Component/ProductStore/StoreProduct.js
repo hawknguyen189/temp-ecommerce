@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import { ProductsContext } from "../Context/ProductsContext";
 
@@ -23,18 +24,24 @@ const StoreProduct = ({ storeDivision, filteredProducts }) => {
               >
                 <div className="card">
                   <div className="product-thumb ">
-                    <a href={"#"} className=" text-center">
+                    <Link
+                      to={`/shop/detail/${product.fields.slug}`}
+                      className="text-center"
+                    >
                       <img
                         src={"https:" + product.fields.image[0].fields.file.url}
                         alt=""
                         className="card-img-top rounded product-image"
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="product-desc card-body">
-                    <a href={"#"} className="product-name text-center">
+                    <Link
+                      to={`/shop/detail/${product.fields.slug}`}
+                      className="product-name text-center"
+                    >
                       <p>{product.fields.productName}</p>
-                    </a>
+                    </Link>
                     <p className="text-center product-price">
                       <span>£</span>
                       {product.fields.price + ".00"}

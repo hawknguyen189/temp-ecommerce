@@ -9,7 +9,7 @@ const PageTitle = (props) => {
           <div className="col-sm page-title text-center">{props.pageInfo}</div>
         </div>
         <div className="row">
-          <h6 className="col-sm sub-title">welcome to Loop PPE</h6>
+          <h6 className="col-sm sub-title">welcome to the Wonder World</h6>
         </div>
       </div>
     </div>

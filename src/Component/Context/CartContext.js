@@ -93,6 +93,17 @@ const CartContextProvider = ({ children }) => {
               (item) => item.sys.id === action.payload.sys.id
             )
           ].quantity++;
+          return {
+            ...state,
+            ...sumItems(state.cartItems),
+            cartItems: [...state.cartItems],
+          };
+        case "INCREASE_QUANTITY":
+          state.cartItems[
+            state.cartItems.findIndex(
+              (item) => item.sys.id === action.payload.sys.id
+            )
+          ].quantity += action.payload.addingQuantity;
           console.log("inside increase ", state);
           return {
             ...state,
@@ -141,8 +152,14 @@ const CartContextProvider = ({ children }) => {
   // Remember that actions only describe what happened, but don't describe how the application's state changes.
 
   const increase = (payload) => {
-    console.log("what is payload  ", payload);
     dispatch({ type: "INCREASE", payload });
+  };
+  const increaseQuantity = (payload, quantity) => {
+    payload = {
+      ...payload,
+      addingQuantity: quantity,
+    };
+    dispatch({ type: "INCREASE_QUANTITY", payload });
   };
 
   const decrease = (payload) => {
@@ -176,6 +193,7 @@ const CartContextProvider = ({ children }) => {
     removeProduct,
     addProduct,
     increase,
+    increaseQuantity,
     decrease,
     clearCart,
     handleCheckout,

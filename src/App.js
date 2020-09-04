@@ -4,7 +4,7 @@ import "../src/Component/CommonUse/FlixCarousel.css";
 import "./App.css";
 import "./Component/CommonUse/Utils.scss";
 // import Header from "./Container/Header";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import { auth, db } from "./Container/Firebase";
 import MainBackground from "./Container/MainBackground";
 import Navbar from "./Component/Navigation/Navbar";
@@ -24,7 +24,7 @@ import Login from "./Component/Account/Login";
 import { UsersContext } from "./Component/Context/UsersContext";
 
 function App() {
-  const {login, setLogin, user, setUser} = useContext(UsersContext);
+  const { login, setLogin, user, setUser } = useContext(UsersContext);
   // console.log("user top ", user);
   // console.log("user context ",UsersContext);
   const updateUser = (collection, uid) => {
@@ -75,7 +75,8 @@ function App() {
   console.log("login is ", login);
   return (
     <div className="App">
-      <Router>
+      {/* changed from BrowserRouter to HashRouter to deploy on github */}
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <Route path="/" component={Navbar} />
         <Route path="/" component={NavbarMobile} />
         <Switch>
@@ -99,7 +100,7 @@ function App() {
           <Route path="*" component={NotFound} />
         </Switch>
         <Route path="/" component={Footer} />
-      </Router>
+      </HashRouter>
     </div>
   );
 }

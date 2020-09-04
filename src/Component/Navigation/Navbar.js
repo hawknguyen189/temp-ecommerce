@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
-import brandLogo from "../../media/treo-bamboo-logo-green.png";
+import brandLogo from "../../media/logo.png";
 import NavDropdown from "./NavDropdown";
 import $ from "jquery";
 import { UsersContext } from "../Context/UsersContext";
@@ -50,8 +50,8 @@ const Navbar = () => {
                 src={brandLogo}
                 className="img-fluid"
                 alt="brand-logo"
-                width="155"
-                height="155"
+                width="90"
+                height="90"
               />
             </Link>
           </div>

@@ -1,5 +1,5 @@
 {
-  "homepage": "https://hawknguyen189.github.io/",
+  "homepage": "https://hawknguyen189.github.io/temp-ecommerce",
   "name": "temp-ecommerce",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +13,7 @@
     "jquery": "^3.5.1",
     "node-sass": "^4.13.1",
     "places.js": "^1.19.0",
+    "query-string": "^6.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet-async": "^1.0.5",

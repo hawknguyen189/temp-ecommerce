@@ -106,12 +106,14 @@
 }
 
 @media (min-width: 992px) {
-  .product-image {
-    height: 280px !important;
-    // padding-bottom: 100%;
-  }
-  .product-desc {
-    height: 150px !important;
+  .product-lot {
+    .product-image {
+      height: 280px !important;
+      // padding-bottom: 100%;
+    }
+    .product-desc {
+      height: 150px !important;
+    }
   }
 }
 // @media (max-width: 767.98px) {
