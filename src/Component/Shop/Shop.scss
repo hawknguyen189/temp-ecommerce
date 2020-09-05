@@ -1,3 +1,4 @@
+@import "../helpers/FontMaster";
 // adding style for shop page
 #shopPage {
   .list-category:hover {
@@ -23,6 +24,68 @@
   .product-detail {
     .detail-card {
       border: none !important;
+    }
+    .product-summary {
+      .badge {
+        border-radius: 8px;
+        text-transform: uppercase;
+        height: 16px;
+        line-height: 16px;
+        padding: 0 10px;
+        font-weight: 700;
+        margin: 0 4px 0 0;
+        color: #fff;
+        font-size: 12px;
+      }
+      .detail-title {
+        color: #333;
+        font-size: 24px;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+        line-height: 1.5;
+        font-family: "Playfair Display";
+      }
+      .detail-price {
+        font-family: "Playfair Display";
+        font-style: italic;
+        font-weight: 700;
+        font-size: 24px;
+      }
+      .detail-main-text {
+        font-family: Lato;
+        font-weight: 400;
+        letter-spacing: 0em;
+        line-height: 1.8;
+      }
+      .detail-action{
+        a :hover{
+          color: #8eb359 !important;
+        }
+        a {
+          width: 48px;
+          height: 48px;
+          background-color: snow;
+          color: black;
+          opacity: 0.9;
+          font-size: 1em;
+        }
+        .add-to-cart > a {
+          background-color: $main-green-text;
+        }
+      }
+      .social-share {
+        a {
+          color: $gray-text;
+        }
+        a:hover {
+          color: snow;
+          background-color: $main-green-text;
+        }
+        .network-bg {
+          width: 40px;
+          height: 40px;
+        }
+      }
     }
   }
 }
