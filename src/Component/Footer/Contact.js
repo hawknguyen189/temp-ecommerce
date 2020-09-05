@@ -11,15 +11,15 @@ const Contact = () => {
         </p>
         <p>
           <i className="fas fa-mobile-alt contact-icon mr-2 text-center"></i>
-          514 872-0311
+          514 872-1234
         </p>
         <p>
           <i className="far fa-envelope contact-icon mr-2 text-center"></i>
-          contact@treobamoo.com
+          contact@creativity.io
         </p>
         <p>
           <i className="fas fa-globe-americas contact-icon mr-2 text-center"></i>
-          <a href="www.treobamboo.com">www.treobamboo.com</a>
+          <a href="/">www.creativity.io</a>
         </p>
       </div>
       <div className="contact-network row">

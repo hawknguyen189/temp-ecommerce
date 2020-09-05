@@ -77,6 +77,12 @@
         font-size: 0.9em;
         font-weight: 700;
         color: $gray-text;
+        .strike-price {
+          color: grey;
+          font-size: 0.8em;
+          font-weight: 400;
+          text-decoration: line-through;
+        }
       }
       .product-action {
         visibility: hidden;

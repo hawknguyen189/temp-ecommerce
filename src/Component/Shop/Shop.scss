@@ -50,6 +50,18 @@
         font-style: italic;
         font-weight: 700;
         font-size: 24px;
+        color: $main-green-text;
+        letter-spacing: 0em;
+        line-height: 1.8;
+        .strike-price {
+          color: grey;
+          font-size: 15px;
+          font-weight: 400;
+          text-decoration: line-through;
+        }
+        .discount-price {
+          color: #696969;
+        }
       }
       .detail-main-text {
         font-family: Lato;
@@ -57,11 +69,18 @@
         letter-spacing: 0em;
         line-height: 1.8;
       }
-      .detail-action{
-        a :hover{
-          color: #8eb359 !important;
+      .detail-stock {
+        height: 40px;
+        line-height: 40px;
+        margin-left: 0;
+        font-style: italic;
+        color: #ababab;
+      }
+      .detail-action {
+        a:hover {
+          border-color: #8eb359 !important;
         }
-        a {
+        .action-bg {
           width: 48px;
           height: 48px;
           background-color: snow;
@@ -85,6 +104,19 @@
           width: 40px;
           height: 40px;
         }
+      }
+      .btn-add-cart {
+        background-color: #8eb359;
+        color: snow;
+        font-family: Lato;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .btn-add-cart:hover {
+        background-color: snow;
+        color: #8eb359;
+        border-color: #8eb359;
       }
     }
   }

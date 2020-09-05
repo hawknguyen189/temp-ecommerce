@@ -11,8 +11,13 @@ const CartItem = ({ product, index, productID }) => {
   // const productPath = productLink(product.productName);
   let productPrice;
   if (productData) {
-    productPrice = productData.find((e) => e.sys.id === productID).fields
-      .price;
+    const findProduct = productData.find((e) => e.sys.id === product.sys.id)
+      .fields;
+    if (findProduct.discountPrice) {
+      productPrice = findProduct.discountPrice;
+    } else {
+      productPrice = findProduct.price;
+    }
   }
   return (
     <tr>

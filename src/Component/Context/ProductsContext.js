@@ -18,7 +18,26 @@ const ProductsContextProvider = ({ children }) => {
     client
       .getEntries({ content_type: "product" })
       .then((response) => {
-        setProductData(response.items);
+        let productResponse = [...response.items];
+        productResponse.forEach((e, index) => {
+          const special = e.fields.special;
+          let findDiscount;
+          if (special) {
+            findDiscount = parseInt(
+              special
+                .find(
+                  (element) => element.toUpperCase().includes("SALE") === true
+                )
+                .toUpperCase()
+                .split("SALE")[1]
+            );
+          }
+          if (findDiscount && findDiscount > 0) {
+            productResponse[index].fields["discountPrice"] =
+              productResponse[index].fields.price * (1 - findDiscount / 100);
+          }
+        });
+        setProductData(productResponse);
       })
       .catch(console.error);
   }, []);

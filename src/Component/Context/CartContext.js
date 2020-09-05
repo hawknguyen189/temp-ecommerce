@@ -24,7 +24,6 @@ const CartContextProvider = ({ children }) => {
   const sumItems = useCallback(
     (cartItems) => {
       Storage(cartItems);
-      console.log("get product data inside sumitems ", productData);
       let itemCount = cartItems.reduce(
         (accu, product) => accu + product.quantity,
         0
@@ -33,15 +32,18 @@ const CartContextProvider = ({ children }) => {
         .reduce((sub, product) => {
           let productPrice = 0;
           if (productData) {
-            productPrice = productData.find((e) => e.sys.id === product.sys.id)
-              .fields.price;
+            const findProduct = productData.find(
+              (e) => e.sys.id === product.sys.id
+            ).fields;
+            if (findProduct.discountPrice) {
+              productPrice = findProduct.discountPrice;
+            } else {
+              productPrice = findProduct.price;
+            }
           }
-          console.log("find price?", productPrice);
-          console.log("find quantity?", product.quantity);
           return sub + productPrice * product.quantity;
         }, 0)
         .toFixed(2);
-      console.log("total?", total);
       return { itemCount, total };
     },
     [productData]

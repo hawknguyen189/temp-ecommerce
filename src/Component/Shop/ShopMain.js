@@ -3,8 +3,7 @@ import StoreProduct from "../ProductStore/StoreProduct";
 import { StoreContext } from "../Context/StoreContext";
 import { useContext } from "react";
 
-const ShopMain = ({ productData, match }) => {
-  console.log("main shop ", match)
+const ShopMain = ({ productData }) => {
   const { productShop } = useContext(StoreContext);
   return (
     <div className="col-sm-9" id="mainShop">

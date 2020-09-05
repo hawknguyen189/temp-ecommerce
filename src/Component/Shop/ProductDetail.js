@@ -50,9 +50,15 @@ const ProductDetail = ({ productData }) => {
                 {product.fields.special && (
                   <div className="badge-div mb-3">
                     {product.fields.special.map((e, index) => {
+                      let badgeStyle;
+                      if (e.toUpperCase() === "HOT") {
+                        badgeStyle = "badge badge-danger";
+                      } else {
+                        badgeStyle = "badge badge-warning";
+                      }
                       return (
-                        <span key={index} className="badge badge-danger">
-                          {e}
+                        <span key={index} className={badgeStyle}>
+                          {e.toUpperCase()}
                         </span>
                       );
                     })}
@@ -63,12 +69,31 @@ const ProductDetail = ({ productData }) => {
                     {product.fields.productName}
                   </span>
                 </h3>
-                <p className="detail-price pb-3">
-                  {new Intl.NumberFormat("en-US", {
-                    style: "currency",
-                    currency: "USD",
-                  }).format(product.fields.price)}
-                </p>
+
+                {product.fields.discountPrice ? (
+                  <p className="detail-price pb-3">
+                    <span className="strike-price mr-3">
+                      {new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(product.fields.price)}
+                    </span>
+                    <span className="discount-price">
+                      {new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(product.fields.discountPrice)}
+                    </span>
+                  </p>
+                ) : (
+                  <p className="detail-price pb-3">
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    }).format(product.fields.price)}
+                  </p>
+                )}
+
                 <p className="pb-3 detail-main-text">
                   {product.fields.productDescription}
                 </p>
@@ -96,17 +121,17 @@ const ProductDetail = ({ productData }) => {
                   </button>
                 </div>
                 <div className="col-sm-7">
-                  <p className="detail-main-text">
+                  <span className="detail-main-text detail-stock">
                     {`${product.fields.quantity} in stock`}
-                  </p>
+                  </span>
                 </div>
               </div>
               <div className="row">
-                <div className="col-sm-5 add-to-cart-btn py-2">
+                <div className="col-sm-5 py-2">
                   {isInCart(product) && (
                     <a
                       href="/"
-                      className="d-flex justify-content-center btn btn-primary rounded-pill"
+                      className="d-flex justify-content-center btn btn-add-cart rounded-pill"
                       onClick={(e) => {
                         e.preventDefault();
                         return increaseQuantity(product, quantity);
@@ -119,7 +144,7 @@ const ProductDetail = ({ productData }) => {
                   {!isInCart(product) && (
                     <a
                       href="/"
-                      className="d-flex justify-content-center btn btn-primary rounded-pill"
+                      className="d-flex justify-content-center btn btn-add-cart rounded-pill"
                       onClick={(e) => {
                         e.preventDefault();
                         addProduct(product);
@@ -135,7 +160,7 @@ const ProductDetail = ({ productData }) => {
                     <div className="quick-view d-flex justify-content-center px-2">
                       <a
                         href="/"
-                        className=" d-flex justify-content-center border border-light rounded-circle"
+                        className="d-flex justify-content-center rounded-circle action-bg border border-light"
                       >
                         <i className="far fa-eye align-self-center"></i>
                       </a>
@@ -143,7 +168,7 @@ const ProductDetail = ({ productData }) => {
                     <div className="add-to-compare d-flex justify-content-center px-2">
                       <a
                         href="/"
-                        className="rounded-circle d-flex justify-content-center border border-light"
+                        className="rounded-circle d-flex justify-content-center border border-light action-bg"
                       >
                         <i className="fas fa-balance-scale align-self-center"></i>
                       </a>
@@ -168,24 +193,30 @@ const ProductDetail = ({ productData }) => {
                     <tr>
                       <th>SHARE</th>
                       <td className="row social-share">
-                        <a
-                          href="/"
-                          className="rounded-circle network-bg text-center d-flex mr-2 network-bg"
-                        >
-                          <i className="fab fa-facebook col-sm align-self-center"></i>
-                        </a>
-                        <a
-                          href="/"
-                          className="rounded-circle network-bg text-center d-flex mr-2 network-bg"
-                        >
-                          <i className="fab fa-instagram col-sm align-self-center"></i>
-                        </a>
-                        <a
-                          href="/"
-                          className="rounded-circle network-bg text-center d-flex mr-2 network-bg"
-                        >
-                          <i className="fab fa-twitter col-sm align-self-center"></i>
-                        </a>
+                        <div className="d-flex justify-content-center">
+                          <a
+                            href="/"
+                            className="rounded-circle network-bg d-flex justify-content-center"
+                          >
+                            <i className="fab fa-facebook align-self-center"></i>
+                          </a>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                          <a
+                            href="/"
+                            className="rounded-circle network-bg d-flex justify-content-center"
+                          >
+                            <i className="fab fa-twitter align-self-center"></i>
+                          </a>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                          <a
+                            href="/"
+                            className="rounded-circle network-bg d-flex justify-content-center"
+                          >
+                            <i className="fab fa-instagram align-self-center"></i>
+                          </a>
+                        </div>
                       </td>
                     </tr>
                   </tbody>

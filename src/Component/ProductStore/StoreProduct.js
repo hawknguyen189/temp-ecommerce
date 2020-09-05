@@ -42,10 +42,29 @@ const StoreProduct = ({ storeDivision, filteredProducts }) => {
                     >
                       <p>{product.fields.productName}</p>
                     </Link>
-                    <p className="text-center product-price">
-                      <span>£</span>
-                      {product.fields.price + ".00"}
-                    </p>
+                    {product.fields.discountPrice ? (
+                      <p className="product-price pb-3 text-center">
+                        <span className="strike-price mr-1">
+                          {new Intl.NumberFormat("en-US", {
+                            style: "currency",
+                            currency: "USD",
+                          }).format(product.fields.price)}
+                        </span>
+                        <span className="discount-price">
+                          {new Intl.NumberFormat("en-US", {
+                            style: "currency",
+                            currency: "USD",
+                          }).format(product.fields.discountPrice)}
+                        </span>
+                      </p>
+                    ) : (
+                      <p className="product-price pb-3 text-center">
+                        {new Intl.NumberFormat("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        }).format(product.fields.price)}
+                      </p>
+                    )}
                     <div className="product-action">
                       <div className="container row justify-content-center">
                         <div className="quick-view d-flex justify-content-center px-2">

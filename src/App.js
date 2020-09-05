@@ -77,8 +77,12 @@ function App() {
     <div className="App">
       {/* changed from BrowserRouter to HashRouter to deploy on github */}
       <HashRouter basename={process.env.PUBLIC_URL}>
-        <Route path="/" component={Navbar} />
-        <Route path="/" component={NavbarMobile} />
+        <Route path="/">
+          <Navbar></Navbar>
+        </Route>
+        <Route path="/">
+          <NavbarMobile></NavbarMobile>
+        </Route>
         <Switch>
           <Route exact path="/">
             <main>
@@ -94,12 +98,25 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/cart" component={Cart} />
-          <Route path="/account" component={Account} />
-          <Route path="/shop" component={Shop} />
-          <Route path="*" component={NotFound} />
+          <Route path="/cart">
+            <Cart></Cart>
+          </Route>
+          <Route path="/account">
+            <Account></Account>
+          </Route>
+          <Route path="/">
+            <Shop></Shop>
+          </Route>
+          <Route path="/shop">
+            <Shop></Shop>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
         </Switch>
-        <Route path="/" component={Footer} />
+        <Route path="/">
+          <Footer></Footer>
+        </Route>
       </HashRouter>
     </div>
   );
