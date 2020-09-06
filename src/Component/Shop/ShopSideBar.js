@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ProductsContext } from "../Context/ProductsContext";
 import { StoreContext } from "../Context/StoreContext";
 import ReactTooltip from "react-tooltip";
@@ -13,28 +14,6 @@ const ShopSideBar = ({ category }) => {
 
   let filteredProducts = [...productData];
 
-  const handleTag = (event) => {
-    const tag = event.target.dataset.filterValue;
-    // handle changes on tag
-    if (tag) {
-      if (tag.toUpperCase() === "ALL") {
-        filteredProducts = [...productData];
-      } else {
-        filteredProducts = filteredProducts.filter((product) => {
-          let showProduct = false;
-          for (let i = 0; i < tag.length; i++) {
-            if (product.fields.tags.includes(tag[i])) {
-              showProduct = true;
-              break;
-            }
-          }
-          return showProduct === true;
-        });
-      }
-    }
-
-    setProductShop(filteredProducts);
-  };
   const handlePriceSlider = (event) => {
     setPriceMax(event.target.value);
   };
@@ -57,7 +36,7 @@ const ShopSideBar = ({ category }) => {
       return showProduct === true;
     });
 
-    setProductShop(filteredProducts);
+    setProductShop(filteredProducts); 
     console.log("object");
   };
   useEffect(() => {
@@ -85,13 +64,10 @@ const ShopSideBar = ({ category }) => {
         <ul className="list-group list-group-flush">
           {category.map((e, index) => {
             return (
-              <li
-                className="list-group-item list-category"
-                key={index}
-                data-filter-value={e}
-                onClick={handleTag}
-              >
-                {e.toUpperCase()}
+              <li className="list-group-item list-category" key={index}>
+                <Link to={`/shop/${e.toUpperCase()}`}>
+                  {e.toUpperCase()}
+                </Link>
               </li>
             );
           })}

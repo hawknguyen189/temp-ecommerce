@@ -16,7 +16,10 @@ const Shop = () => {
       <div className="container pt-3">
         <div className="row">
           <ShopSideBar category={category}></ShopSideBar>
-          <Route exact path="/shop">
+          <Route exact path="/shop/:category">
+            <ShopMain productData={productData}></ShopMain>
+          </Route>
+          <Route exact path="/shop/">
             <ShopMain productData={productData}></ShopMain>
           </Route>
           <Route exact path="/shop/detail/:slug">
