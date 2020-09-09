@@ -1,24 +1,78 @@
 @import "../helpers/FontMaster";
 // adding style for shop page
 #shopPage {
-  .list-category:hover {
-    color: #8eb359;
-    font-weight: 600;
-    transition: all 0.5s;
-    cursor: pointer;
-  }
-  .list-category {
-    font-weight: 500;
-    font-family: Lato, Helvetica, Arial, sans-serif;
-    letter-spacing: 0em;
-    line-height: 1.8;
-  }
-  .shop-heading {
-    font-style: normal;
-    line-height: 1.5;
-    font-family: "Playfair Display";
-    font-weight: 700;
-    color: #333;
+  // sidebar styling
+  #sidebar {
+    .list-category:hover {
+      color: #8eb359;
+      font-weight: 600;
+      transition: all 0.5s;
+      cursor: pointer;
+    }
+    .list-category {
+      font-weight: 500;
+      font-family: Lato, Helvetica, Arial, sans-serif;
+      letter-spacing: 0em;
+      line-height: 1.8;
+    }
+    .shop-heading {
+      font-style: normal;
+      line-height: 1.5;
+      font-family: "Playfair Display";
+      font-weight: 700;
+      color: #333;
+    }
+    //best seller section
+    .best-seller {
+      .product-name {
+        font-size: 16px;
+        font-weight: 700;
+        font-family: "Playfair Display";
+        color: #333;
+        letter-spacing: 0em;
+        line-height: 1.8;
+        transition-property: all;
+        transition-duration: 0.5s;
+      }
+      .product-image {
+        transition-property: all;
+        transition-duration: 0.5s;
+      }
+      .best-seller-slider {
+        transition-property: all;
+        transition-duration: 0.5s;
+      }
+      .best-seller-list:hover {
+        .product-name {
+          color: $main-green-text;
+        }
+        .product-image {
+          border-color: $main-green-text !important;
+        }
+        .best-seller-slider {
+          width: 55% !important;
+          background-color: $main-green-text!important;
+        }
+      }
+      .detail-price {
+        font-family: "Playfair Display";
+        font-style: italic;
+        font-weight: 700;
+        font-size: 15px;
+        color: $main-green-text;
+        letter-spacing: 0em;
+        line-height: 1.8;
+        .strike-price {
+          color: grey;
+          font-size: 14px;
+          font-weight: 400;
+          text-decoration: line-through;
+        }
+        .discount-price {
+          color: #696969;
+        }
+      }
+    }
   }
   //product detail
   .product-detail {

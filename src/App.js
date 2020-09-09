@@ -104,9 +104,6 @@ function App() {
           <Route path="/account">
             <Account></Account>
           </Route>
-          <Route path="/">
-            <Shop></Shop>
-          </Route>
           <Route path="/shop">
             <Shop></Shop>
           </Route>

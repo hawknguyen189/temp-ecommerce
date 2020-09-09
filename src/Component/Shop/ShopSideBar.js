@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { ProductsContext } from "../Context/ProductsContext";
 import { StoreContext } from "../Context/StoreContext";
 import ReactTooltip from "react-tooltip";
+import BestSeller from "./BestSeller";
 
 const ShopSideBar = ({ category }) => {
   const { productData } = useContext(ProductsContext);
   const { setProductShop } = useContext(StoreContext);
   const [priceMin, setPriceMin] = useState(0);
   const [priceMax, setPriceMax] = useState(10);
+  const [bestseller, setBestseller] = useState("");
   const minSlider = useRef(); //Mutating the .current property won’t cause a re-render.
   const maxSlider = useRef();
 
@@ -36,7 +38,7 @@ const ShopSideBar = ({ category }) => {
       return showProduct === true;
     });
 
-    setProductShop(filteredProducts); 
+    setProductShop(filteredProducts);
     console.log("object");
   };
   useEffect(() => {
@@ -47,6 +49,19 @@ const ShopSideBar = ({ category }) => {
       maxSlider.current = Math.max(
         ...productData.map((item) => item.fields.price)
       );
+      const arrangeBestSeller = productData.filter((e) => {
+        //retrieve best seller list with special tag as "HOT"
+        let found = false;
+        if (e.fields.special) {
+          if (
+            e.fields.special.find((element) => element.toUpperCase() === "HOT")
+          ) {
+            found = true;
+          }
+        }
+        return found === true;
+      });
+      setBestseller(arrangeBestSeller);
     }
   }, [productData]);
   return (
@@ -65,9 +80,7 @@ const ShopSideBar = ({ category }) => {
           {category.map((e, index) => {
             return (
               <li className="list-group-item list-category" key={index}>
-                <Link to={`/shop/${e.toUpperCase()}`}>
-                  {e.toUpperCase()}
-                </Link>
+                <Link to={`/shop/${e.toUpperCase()}`}>{e.toUpperCase()}</Link>
               </li>
             );
           })}
@@ -95,7 +108,7 @@ const ShopSideBar = ({ category }) => {
             </ReactTooltip>
           </div>
         </form>
-        <div className="row pt-2 justify-content-end">
+        <div className="row pt-2 justify-content-end justify-content-center">
           <button className="btn btn-secondary col-sm-4" onClick={hanldeSubmit}>
             Filter
           </button>
@@ -115,9 +128,7 @@ const ShopSideBar = ({ category }) => {
           </div>
         </div>
       </div>
-      <div className="best-seller pt-2">
-        <h3 className="shop-heading">Best Sellers</h3>
-      </div>
+      <BestSeller bestseller={bestseller}></BestSeller>
     </div>
   );
 };

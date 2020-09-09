@@ -42,7 +42,9 @@
 }
 .product-shelf {
   .product-lot:hover {
-    border-color: $main-green-text;
+    .product-border {
+      border-color: $main-green-text;
+    }
     .product-name {
       color: $main-green-text;
     }
@@ -53,9 +55,17 @@
     .product-action {
       visibility: visible !important;
     }
+    .best-seller-slider {
+      width: 55% !important;
+      background-color: $main-green-text !important;
+    }
   }
   .product-lot {
     height: 440px;
+    .product-border {
+      transition-property: all;
+      transition-duration: 0.5s;
+    }
     .product-thumb {
       img {
         transition: all 0.5s;
@@ -70,6 +80,10 @@
         color: $brown-text;
         font-weight: 700;
         transition: all 0.2s;
+      }
+      .best-seller-slider {
+        transition-property: all;
+        transition-duration: 0.5s;
       }
       .product-price {
         font-family: $font-display;

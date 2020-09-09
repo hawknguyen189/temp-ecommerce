@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import { ProductsContext } from "../Context/ProductsContext";
+import Slider from "../CommonUse/Slider";
 
 const StoreProduct = ({ storeDivision, filteredProducts }) => {
   //use context
@@ -22,7 +23,7 @@ const StoreProduct = ({ storeDivision, filteredProducts }) => {
                 className={`${storeDivision} pr-2 pl-2 pb-2 pt-2 product-lot`}
                 key={index}
               >
-                <div className="card">
+                <div className="card product-border">
                   <div className="product-thumb ">
                     <Link
                       to={`/shop/detail/${product.fields.slug}`}
@@ -42,6 +43,10 @@ const StoreProduct = ({ storeDivision, filteredProducts }) => {
                     >
                       <p>{product.fields.productName}</p>
                     </Link>
+                    <Slider
+                      sliderWidth={35}
+                      customClass="my-2 best-seller-slider mx-auto"
+                    ></Slider>
                     {product.fields.discountPrice ? (
                       <p className="product-price pb-3 text-center">
                         <span className="strike-price mr-1">
