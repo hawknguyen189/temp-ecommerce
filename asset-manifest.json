@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/temp-ecommerce/static/css/main.ad372eee.chunk.css",
-    "main.js": "/temp-ecommerce/static/js/main.a4a41ce6.chunk.js",
-    "main.js.map": "/temp-ecommerce/static/js/main.a4a41ce6.chunk.js.map",
+    "main.css": "/temp-ecommerce/static/css/main.a0e55ab0.chunk.css",
+    "main.js": "/temp-ecommerce/static/js/main.d5421f09.chunk.js",
+    "main.js.map": "/temp-ecommerce/static/js/main.d5421f09.chunk.js.map",
     "runtime-main.js": "/temp-ecommerce/static/js/runtime-main.187a2579.js",
     "runtime-main.js.map": "/temp-ecommerce/static/js/runtime-main.187a2579.js.map",
-    "static/js/2.17a778e2.chunk.js": "/temp-ecommerce/static/js/2.17a778e2.chunk.js",
-    "static/js/2.17a778e2.chunk.js.map": "/temp-ecommerce/static/js/2.17a778e2.chunk.js.map",
+    "static/js/2.2c0e88d8.chunk.js": "/temp-ecommerce/static/js/2.2c0e88d8.chunk.js",
+    "static/js/2.2c0e88d8.chunk.js.map": "/temp-ecommerce/static/js/2.2c0e88d8.chunk.js.map",
     "index.html": "/temp-ecommerce/index.html",
-    "precache-manifest.61436736473f6eaa1cccb7f78fb70a21.js": "/temp-ecommerce/precache-manifest.61436736473f6eaa1cccb7f78fb70a21.js",
+    "precache-manifest.2394e97d91b173629f8480149e33e358.js": "/temp-ecommerce/precache-manifest.2394e97d91b173629f8480149e33e358.js",
     "service-worker.js": "/temp-ecommerce/service-worker.js",
-    "static/css/main.ad372eee.chunk.css.map": "/temp-ecommerce/static/css/main.ad372eee.chunk.css.map",
-    "static/js/2.17a778e2.chunk.js.LICENSE.txt": "/temp-ecommerce/static/js/2.17a778e2.chunk.js.LICENSE.txt",
+    "static/css/main.a0e55ab0.chunk.css.map": "/temp-ecommerce/static/css/main.a0e55ab0.chunk.css.map",
+    "static/js/2.2c0e88d8.chunk.js.LICENSE.txt": "/temp-ecommerce/static/js/2.2c0e88d8.chunk.js.LICENSE.txt",
     "static/media/AI-generated-1.jpg": "/temp-ecommerce/static/media/AI-generated-1.0ffd66ae.jpg",
     "static/media/AI-generated-2.jpg": "/temp-ecommerce/static/media/AI-generated-2.3835f635.jpg",
     "static/media/AI-generated-3.jpg": "/temp-ecommerce/static/media/AI-generated-3.7cf2251e.jpg",
@@ -30,6 +30,7 @@
     "static/media/foo.jpg": "/temp-ecommerce/static/media/foo.9c211f27.jpg",
     "static/media/how.png": "/temp-ecommerce/static/media/how.fe6067eb.png",
     "static/media/lemon-hand-sanitizer.jpg": "/temp-ecommerce/static/media/lemon-hand-sanitizer.71d0804e.jpg",
+    "static/media/logo.png": "/temp-ecommerce/static/media/logo.e652fa25.png",
     "static/media/loop-bamboo-accessory.jpg": "/temp-ecommerce/static/media/loop-bamboo-accessory.989ba7c2.jpg",
     "static/media/loop-bamboo-countertop.jpg": "/temp-ecommerce/static/media/loop-bamboo-countertop.fa773237.jpg",
     "static/media/loop-bamboo-decking.jpg": "/temp-ecommerce/static/media/loop-bamboo-decking.65d1222a.jpg",
@@ -53,8 +54,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.187a2579.js",
-    "static/js/2.17a778e2.chunk.js",
-    "static/css/main.ad372eee.chunk.css",
-    "static/js/main.a4a41ce6.chunk.js"
+    "static/js/2.2c0e88d8.chunk.js",
+    "static/css/main.a0e55ab0.chunk.css",
+    "static/js/main.d5421f09.chunk.js"
   ]
 }
