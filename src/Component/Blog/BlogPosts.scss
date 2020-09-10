@@ -12,7 +12,7 @@
   font-weight: 700;
   font-style: normal;
   line-height: 1.5;
-  color:black;
+  color: black;
 }
 .blog-content {
   font-family: $font-alata;
@@ -23,11 +23,24 @@
 }
 .blog-more {
   font-family: $font-alata;
-//   letter-spacing: 0.1em;
+  //   letter-spacing: 0.1em;
   font-size: 0.9em;
   color: $gray-text;
   font-weight: 400;
 }
-.side-blog-img{
+.side-blog-img {
   height: 100%;
+}
+
+// style for single blog post
+.post-detail {
+  .blog-quote {
+    line-height: 2em;
+    letter-spacing: 0.1em;
+    color: #696969;
+    font-style: italic;
+    font-family: $font-display;
+    border-color: #8eb359 !important;
+    border-left: 2px solid;
+  }
 }

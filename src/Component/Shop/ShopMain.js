@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import StoreProduct from "../ProductStore/StoreProduct";
 import { useRouter } from "../CommonUse/CustomHooks";
 import { StoreContext } from "../Context/StoreContext";
-import { useContext } from "react";
 
 const ShopMain = () => {
   const { productShop } = useContext(StoreContext); //use a different var from productData, for filter purpose
@@ -12,11 +11,10 @@ const ShopMain = () => {
     if (router.query.category.toUpperCase() === "ALL") {
       productArray = [...productShop];
     } else {
-      productArray = productShop.filter(
-        (e) =>
-          e.fields.categories.find(
-            (e) => e.fields.title === router.query.category.toUpperCase()
-          ) === true
+      productArray = productShop.filter((e) =>
+        e.fields.categories.find(
+          (e) => e.fields.title === router.query.category.toUpperCase()
+        )
       );
     }
   }

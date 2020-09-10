@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import PageTitle from "../Component/CommonUse/PageTitle";
 import ShopSideBar from "../Component/Shop/ShopSideBar";
 import ShopMain from "../Component/Shop/ShopMain";
@@ -16,15 +16,14 @@ const Shop = () => {
       <div className="container pt-3">
         <div className="row">
           <ShopSideBar category={category}></ShopSideBar>
-          <Route exact path="/shop/:category">
-            <ShopMain productData={productData}></ShopMain>
-          </Route>
-          <Route exact path="/shop/">
-            <ShopMain productData={productData}></ShopMain>
-          </Route>
-          <Route exact path="/shop/detail/:slug">
-            <ProductDetail productData={productData}></ProductDetail>
-          </Route>
+          <Switch>
+            <Route exact path="/shop/:category">
+              <ShopMain productData={productData}></ShopMain>
+            </Route>
+            <Route exact path="/shop/detail/:slug">
+              <ProductDetail productData={productData}></ProductDetail>
+            </Route>
+          </Switch>
         </div>
       </div>
     </div>

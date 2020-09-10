@@ -113,7 +113,9 @@ const Navbar = () => {
                 <NavDropdown
                   navMenu="Blog"
                   className=""
-                  navList={["Blog 1", "Blog 2", "Blog 3"]}
+                  navList={[
+                    { navName: "Blogs", navPath: "blog/all" },
+                  ]}
                   path="#blogSection"
                 ></NavDropdown>
               </ul>

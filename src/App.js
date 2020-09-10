@@ -14,6 +14,7 @@ import ProductShow from "./Container/ProductShow";
 import Delivery from "./Container/Delivery";
 import Testimonials from "./Container/Testimonials";
 import Blog from "./Container/Blog";
+import BlogPage from "./Container/BlogPage";
 import Subscription from "./Container/Subscription";
 import Footer from "./Container/Footer";
 import Cart from "./Container/Cart";
@@ -84,6 +85,7 @@ function App() {
           <NavbarMobile></NavbarMobile>
         </Route>
         <Switch>
+          {/* Renders the first child <Route> or <Redirect> that matches the location. */}
           <Route exact path="/">
             <main>
               <MainBackground />
@@ -106,6 +108,9 @@ function App() {
           </Route>
           <Route path="/shop">
             <Shop></Shop>
+          </Route>
+          <Route path="/blog">
+            <BlogPage></BlogPage>
           </Route>
           <Route path="*">
             <NotFound></NotFound>

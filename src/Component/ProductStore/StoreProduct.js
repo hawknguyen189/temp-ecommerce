@@ -5,6 +5,7 @@ import { ProductsContext } from "../Context/ProductsContext";
 import Slider from "../CommonUse/Slider";
 
 const StoreProduct = ({ storeDivision, filteredProducts }) => {
+  console.log("store product ", filteredProducts);
   //use context
   const { addProduct, cartItems, increase } = useContext(CartContext);
   const { productData } = useContext(ProductsContext);

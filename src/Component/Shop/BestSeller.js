@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "../CommonUse/Slider";
 
 const BestSeller = ({ bestseller }) => {
-  console.log("best seller ", bestseller);
   return (
     <div className="best-seller pt-5">
       <h3 className="shop-heading">Best Sellers</h3>

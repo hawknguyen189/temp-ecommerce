@@ -6,6 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import App from "./App";
 import { HelmetProvider } from "react-helmet-async";
 import ProductsContextProvider from "./Component/Context/ProductsContext";
+import BlogsContextProvider from "./Component/Context/BlogsContext";
 import CartContextProvider from "./Component/Context/CartContext";
 import UsersContextProvider from "./Component/Context/UsersContext";
 import { StoreContextProvider } from "./Component/Context/StoreContext";
@@ -15,7 +16,9 @@ ReactDOM.render(
       <UsersContextProvider>
         <CartContextProvider>
           <StoreContextProvider>
-            <App />
+            <BlogsContextProvider>
+              <App />
+            </BlogsContextProvider>
           </StoreContextProvider>
         </CartContextProvider>
       </UsersContextProvider>

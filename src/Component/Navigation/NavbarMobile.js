@@ -105,6 +105,7 @@ const NavbarMobile = () => {
                   { navName: "My Cart", navPath: "cart" },
                   { navName: "Check Out", navPath: "checkout" },
                   { navName: "Wishlist", navPath: "wishlist" },
+                  { navName: "Shop", navPath: "shop/all" },
                 ]}
                 path="#storeSection"
               ></NavMobileDropdown>
@@ -112,7 +113,7 @@ const NavbarMobile = () => {
               <NavMobileDropdown
                 navMenu="Blog"
                 className=""
-                navList={["Blog 1", "Blog 2", "Blog 3"]}
+                navList={[{ navName: "Blogs", navPath: "blog/all" }]}
                 path="#blogSection"
               ></NavMobileDropdown>
 

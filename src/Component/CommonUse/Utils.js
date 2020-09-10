@@ -39,5 +39,4 @@ const formatNumber = (number) => {
 const productLink = (product) => {
   return product.toLowerCase().replace(/ /g, "-");
 };
-
 export { _truncate, _debounce, formatNumber, productLink };
