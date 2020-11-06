@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/temp-ecommerce/static/css/main.a0e55ab0.chunk.css",
-    "main.js": "/temp-ecommerce/static/js/main.d5421f09.chunk.js",
-    "main.js.map": "/temp-ecommerce/static/js/main.d5421f09.chunk.js.map",
+    "main.css": "/temp-ecommerce/static/css/main.de9c21c3.chunk.css",
+    "main.js": "/temp-ecommerce/static/js/main.2b25db21.chunk.js",
+    "main.js.map": "/temp-ecommerce/static/js/main.2b25db21.chunk.js.map",
     "runtime-main.js": "/temp-ecommerce/static/js/runtime-main.187a2579.js",
     "runtime-main.js.map": "/temp-ecommerce/static/js/runtime-main.187a2579.js.map",
-    "static/js/2.2c0e88d8.chunk.js": "/temp-ecommerce/static/js/2.2c0e88d8.chunk.js",
-    "static/js/2.2c0e88d8.chunk.js.map": "/temp-ecommerce/static/js/2.2c0e88d8.chunk.js.map",
+    "static/js/2.250e36e0.chunk.js": "/temp-ecommerce/static/js/2.250e36e0.chunk.js",
+    "static/js/2.250e36e0.chunk.js.map": "/temp-ecommerce/static/js/2.250e36e0.chunk.js.map",
     "index.html": "/temp-ecommerce/index.html",
-    "precache-manifest.2394e97d91b173629f8480149e33e358.js": "/temp-ecommerce/precache-manifest.2394e97d91b173629f8480149e33e358.js",
+    "precache-manifest.efb2c971185daf211ae5cf97a8dc5122.js": "/temp-ecommerce/precache-manifest.efb2c971185daf211ae5cf97a8dc5122.js",
     "service-worker.js": "/temp-ecommerce/service-worker.js",
-    "static/css/main.a0e55ab0.chunk.css.map": "/temp-ecommerce/static/css/main.a0e55ab0.chunk.css.map",
-    "static/js/2.2c0e88d8.chunk.js.LICENSE.txt": "/temp-ecommerce/static/js/2.2c0e88d8.chunk.js.LICENSE.txt",
+    "static/css/main.de9c21c3.chunk.css.map": "/temp-ecommerce/static/css/main.de9c21c3.chunk.css.map",
+    "static/js/2.250e36e0.chunk.js.LICENSE.txt": "/temp-ecommerce/static/js/2.250e36e0.chunk.js.LICENSE.txt",
     "static/media/AI-generated-1.jpg": "/temp-ecommerce/static/media/AI-generated-1.0ffd66ae.jpg",
     "static/media/AI-generated-2.jpg": "/temp-ecommerce/static/media/AI-generated-2.3835f635.jpg",
     "static/media/AI-generated-3.jpg": "/temp-ecommerce/static/media/AI-generated-3.7cf2251e.jpg",
@@ -54,8 +54,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.187a2579.js",
-    "static/js/2.2c0e88d8.chunk.js",
-    "static/css/main.a0e55ab0.chunk.css",
-    "static/js/main.d5421f09.chunk.js"
+    "static/js/2.250e36e0.chunk.js",
+    "static/css/main.de9c21c3.chunk.css",
+    "static/js/main.2b25db21.chunk.js"
   ]
 }
