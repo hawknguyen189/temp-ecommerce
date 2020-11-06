@@ -43,4 +43,30 @@
     border-color: #8eb359 !important;
     border-left: 2px solid;
   }
+  .post-category {
+    font-family: $font-display;
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    line-height: 1.8;
+    text-decoration: none;
+    color: #696969;
+  }
+  .post-category:hover {
+    color: $main-green-text;
+  }
+  .social-share {
+    a {
+      color: $gray-text;
+    }
+    a:hover {
+      color: snow;
+      background-color: $main-green-text;
+    }
+    .network-bg {
+      width: 40px;
+      height: 40px;
+    }
+  }
 }

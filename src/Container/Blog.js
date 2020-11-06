@@ -28,6 +28,7 @@ const Blog = () => {
               className=""
               contentClass="mt-3"
               imgClass="img-fluid rounded"
+              imgContainer=""
             ></BlogPosts>
           </div>
           <div className="col-lg side-blog pl-sm-5">
@@ -37,7 +38,8 @@ const Blog = () => {
                   blogdata={e}
                   className="row mb-5 align-items-center"
                   contentClass="col-sm"
-                  imgClass="col-sm-6 rounded side-blog-img"
+                  imgClass="rounded img-fluid"
+                  imgContainer="col-sm"
                   key={index}
                 ></BlogPosts>
               );

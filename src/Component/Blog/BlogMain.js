@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { BlogsContext } from "../Context/BlogsContext";
 import { _truncate } from "../CommonUse/Utils";
 import { useRouter } from "../CommonUse/CustomHooks";
-import { useState } from "react";
 
 const BlogMain = () => {
   const { blog } = useContext(BlogsContext);
@@ -40,9 +39,12 @@ const BlogMain = () => {
                 <Link to={`/blog/post/${e.fields.slug}`}>
                   <h4 className="blog-title pt-3">{e.fields.title}</h4>
                 </Link>
-                <time className="blog-date" dateTime={e.fields.publishDate}>
-                  {e.fields.publishDate}
-                </time>
+                <div className="blog-date">
+                  <i className="far fa-calendar-alt"></i>{" "}
+                  <time dateTime={e.fields.publishDate}>
+                    {e.fields.publishDate}
+                  </time>
+                </div>
                 <p className="blog-content">
                   {_truncate.apply(e.fields.description, [300, true])}
                 </p>

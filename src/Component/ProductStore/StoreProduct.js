@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
-import { ProductsContext } from "../Context/ProductsContext";
+// import { ProductsContext } from "../Context/ProductsContext";
 import Slider from "../CommonUse/Slider";
 
 const StoreProduct = ({ storeDivision, filteredProducts }) => {
   console.log("store product ", filteredProducts);
   //use context
   const { addProduct, cartItems, increase } = useContext(CartContext);
-  const { productData } = useContext(ProductsContext);
+  // const { productData } = useContext(ProductsContext);
 
   const isInCart = (product) => {
     return !!cartItems.find((item) => item.sys.id === product.sys.id);
