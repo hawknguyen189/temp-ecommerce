@@ -21,7 +21,8 @@ const Blog = () => {
       ></SectionTitle>
       {mainBlog && (
         <div className="row">
-          {/* check if blog is on main page */}
+          {/* check if blog is on main page
+          only work if mainBlog is not array */}
           <div className="col-lg main-blog pr-sm-5">
             <BlogPosts
               blogdata={mainBlog[0]}
