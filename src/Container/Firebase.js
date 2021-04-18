@@ -10,7 +10,7 @@ import "firebase/auth";
 import "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAJQpD465SYpsP91qreBX2RJ2birzAKze4",
+  apiKey: process.env.REACT_APP_FIREBASE_API,
   authDomain: "loop-ppe.firebaseapp.com",
   databaseURL: "https://loop-ppe.firebaseio.com",
   projectId: "loop-ppe",

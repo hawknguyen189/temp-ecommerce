@@ -113,7 +113,7 @@ const Account = () => {
                 role="tabpanel"
                 aria-labelledby="home-tab"
               >
-                <h6>Welcome back {user.email}</h6>
+                <h6>Welcome back {user.email ? user.email : ""}</h6>
 
                 <Profile
                   handleSignout={handleSignout}
