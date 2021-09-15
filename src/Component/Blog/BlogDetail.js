@@ -12,7 +12,7 @@ const BlogDetail = () => {
   if (blog) {
     blogPost = blog.find((e) => e.fields.slug === router.query.slug);
   }
-
+  //add new comment
   return (
     <div>
       {blogPost && (
