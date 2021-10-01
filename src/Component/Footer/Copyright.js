@@ -4,8 +4,8 @@ const Copyright = () => {
   return (
     <div className="row ">
       <div className="col-sm copyright-content">
-        Made with by Hoc Nguyen <i className="fas fa-fire-alt"></i> - Copyright
-        © 2020 Hoc Nguyen - All Rights Reserved.
+        Made with <i className="fas fa-fire-alt"></i> by Hoc Nguyen - Copyright ©
+        2020 Hoc Nguyen - All Rights Reserved.
       </div>
       <div className="col-sm text-right row policy-content">
         <div className="col-sm">
